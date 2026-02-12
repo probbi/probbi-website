@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>TryHackMe SOC1 Lab Notes | probbi</title>
+<meta name="keywords" content="">
+<meta name="description" content="This notes contains my personal notes and summaries from the TryHackMe platform, focusing on the SOC Level 1 path and Blue Team topics and SIEM basics.
+The goal is to document what I’ve learned, strengthen my cybersecurity knowledge, and build a practical portfolio others can follow.
+
+Tools that helped me along the way
+Address, Network Search
+
+https://www.abuseipdb.com/
+https://wigle.net/index
+https://www.arin.net/
+https://ipinfo.io/
+
+Adversary Tactics and Techniques, Knowledge Base
+
+https://attack.mitre.org/
+
+Analyze Headers
+
+https://toolbox.googleapps.com/apps/messageheader/analyzeheader
+https://mha.azurewebsites.net/
+https://mailheader.org/
+
+Blocklist Botnet
+
+https://feodotracker.abuse.ch/
+
+Blocklist Programs
+
+https://threatfox.abuse.ch/
+
+Blocklist SSL
+
+https://sslbl.abuse.ch/
+
+Blocklist URL
+
+https://urlhaus.abuse.ch/
+
+Crack, Hash
+
+https://crackstation.net/
+https://md5hashing.net/
+https://hashes.com/en/decrypt/hash
+https://hashcat.net/wiki/doku.php?id=example_hashes
+https://www.onlinehashcrack.com/hash-identification.php
+https://emn178.github.io/online-tools/
+https://www.srihash.org/
+
+Decoding, HEXA
+
+https://emn178.github.io/online-tools/base32_decode.html
+https://www.base64decode.org/
+https://www.dcode.fr/cipher-identifier
+https://morsecode.world/international/translator.html
+https://gchq.github.io/CyberChef/
+https://cyberchef.io/
+https://regex101.com/r/zQ3mH7/1
+
+Downloads-exe
+
+https://lolbas-project.github.io/
+
+Education, certificates
+
+https://www.cybrary.it/catalog
+https://www.giac.org/certifications/security-essentials-gsec/
+https://www.isc2.org/certifications/ccsp
+https://www.comptia.org/training/certmaster-learn/securitysection2
+
+Encryption, Cryptography
+
+https://cryptii.com/pipes/caesar-cipher
+
+Error Codes
+
+https://hstechdocs.helpsystems.com/manuals/globalscape/cuteftpmacpro3/Numbered_FTP_status_and_error_codes.htm?ref=securitynguyen.com
+
+Exploit, Vulnerability Database
+
+https://www.exploit-db.com/
+https://www.cve.org/
+
+IP Calculator
+
+https://jodies.de/ipcalc
+
+Linux
+
+https://ubuntu.com/
+https://www.linuxmint.com/
+https://www.kali.org/
+https://www.centos.org/
+https://fishshell.com/
+
+MAC Address Lookup
+
+https://maclookup.app
+
+Magic Number
+
+https://asecuritysite.com/forensics/magic
+
+Malware Databases
+
+https://malshare.com/
+https://tdm.socprime.com/signup
+https://bazaar.abuse.ch/
+https://user-agents.net/browsers
+
+Network Protocol Analyzers
+
+https://tshark.dev/
+https://www.tcpdump.org/
+https://www.wireshark.org/
+https://nmap.org/man/hu/index.html
+https://www.snort.org/ (A site for sharing packet capture (pcap) files and malware) samples.
+https://www.malware-traffic-analysis.net/
+
+OSINT
+
+https://github.com/laramies/theHarvester
+https://www.varonis.com/blog/what-is-osint
+https://hunter.io/
+https://osintframework.com/
+
+Other Search Engines
+
+https://search.censys.io/
+https://www.shodan.io/
+https://haveibeenpwned.com/
+
+Phishing
+
+https://www.knowbe4.com/resource-center/phishing
+https://www.itgovernance.co.uk/blog/5-ways-to-detect-a-phishing-email
+https://cheapsslsecurity.com/blog/10-phishing-email-examples-you-need-to-see/
+https://phishingquiz.withgoogle.com/
+https://app.phishtool.com/
+
+Ports
+
+https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
+
+Protocol numbers
+
+https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
+
+Reading, Magazine
+
+https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds
+
+Security News
+
+https://www.mandiant.com/resources/blog
+
+Threat Research
+
+https://talosintelligence.com/
+https://oasis-open.github.io/cti-documentation/taxii/intro
+https://oasis-open.github.io/cti-documentation/
+https://www.mandiant.com/resources
+https://www.recordedfuture.com/resources
+https://search.censys.io/
+
+Threat Sharing
+
+https://www.circl.lu/doc/misp/
+
+URL Extractor
+
+https://www.convertcsv.com/url-extractor.htm
+
+Virus Check On-Line
+
+https://metadefender.opswat.com/
+https://www.virustotal.com/gui/home/upload
+https://app.any.run/
+https://urlscan.io/
+https://abuse.ch/
+https://hybrid-analysis.com/
+
+VirtualBox
+
+https://www.virtualbox.org/
+
+WHOIS
+
+https://www.phishtool.com/
+https://www.whois.com/whois/
+https://mxtoolbox.com/
+https://mxtoolbox.com/SuperTool.aspx
+
+Windows
+
+https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals
+https://0xcybery.github.io/blog/Core-Processes-In-Windows-System
+https://learn.microsoft.com/hu-hu/sysinternals/
+
+VMware
+
+https://profile.broadcom.com/web/registration
+
+WWW/Agents
+
+https://explore.whatismybrowser.com/useragents/explore/
+https://outervision.com/power-supply-calculator
+https://securityheaders.com/
+
+🇭🇺 TCP IP
+Petrényi József
+TCP/IP - 1 óra alatt:">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tryhackme/tryhackme-sock-1-lab-notes/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tryhackme/tryhackme-sock-1-lab-notes/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="probbi (Alt + H)">probbi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tryhackme/" title="TryHackMe">
+                    <span>TryHackMe</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tryhackme/security-tools/" title="Tools">
+                    <span>Tools</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      TryHackMe SOC1 Lab Notes
+    </h1>
+    <div class="post-meta"><span title='2025-06-15 20:07:45 +0100 +0100'>June 15, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>This notes contains my personal notes and summaries from the <a href="https://tryhackme.com">TryHackMe</a> platform, focusing on the <strong>SOC Level 1</strong> path and Blue Team topics and SIEM basics.</p>
+<p>The goal is to document what I’ve learned, strengthen my cybersecurity knowledge, and build a practical portfolio others can follow.</p>
+<hr>
+<h2 id="tools-that-helped-me-along-the-way">Tools that helped me along the way<a hidden class="anchor" aria-hidden="true" href="#tools-that-helped-me-along-the-way">#</a></h2>
+<h3 id="address-network-search">Address, Network Search<a hidden class="anchor" aria-hidden="true" href="#address-network-search">#</a></h3>
+<ul>
+<li><a href="https://www.abuseipdb.com/">https://www.abuseipdb.com/</a></li>
+<li><a href="https://wigle.net/index">https://wigle.net/index</a></li>
+<li><a href="https://www.arin.net/">https://www.arin.net/</a></li>
+<li><a href="https://ipinfo.io/">https://ipinfo.io/</a></li>
+</ul>
+<h3 id="adversary-tactics-and-techniques-knowledge-base">Adversary Tactics and Techniques, Knowledge Base<a hidden class="anchor" aria-hidden="true" href="#adversary-tactics-and-techniques-knowledge-base">#</a></h3>
+<ul>
+<li><a href="https://attack.mitre.org/">https://attack.mitre.org/</a></li>
+</ul>
+<h3 id="analyze-headers">Analyze Headers<a hidden class="anchor" aria-hidden="true" href="#analyze-headers">#</a></h3>
+<ul>
+<li><a href="https://toolbox.googleapps.com/apps/messageheader/analyzeheader">https://toolbox.googleapps.com/apps/messageheader/analyzeheader</a></li>
+<li><a href="https://mha.azurewebsites.net/">https://mha.azurewebsites.net/</a></li>
+<li><a href="https://mailheader.org/">https://mailheader.org/</a></li>
+</ul>
+<h3 id="blocklist-botnet">Blocklist Botnet<a hidden class="anchor" aria-hidden="true" href="#blocklist-botnet">#</a></h3>
+<ul>
+<li><a href="https://feodotracker.abuse.ch/">https://feodotracker.abuse.ch/</a></li>
+</ul>
+<h3 id="blocklist-programs">Blocklist Programs<a hidden class="anchor" aria-hidden="true" href="#blocklist-programs">#</a></h3>
+<ul>
+<li><a href="https://threatfox.abuse.ch/">https://threatfox.abuse.ch/</a></li>
+</ul>
+<h3 id="blocklist-ssl">Blocklist SSL<a hidden class="anchor" aria-hidden="true" href="#blocklist-ssl">#</a></h3>
+<ul>
+<li><a href="https://sslbl.abuse.ch/">https://sslbl.abuse.ch/</a></li>
+</ul>
+<h3 id="blocklist-url">Blocklist URL<a hidden class="anchor" aria-hidden="true" href="#blocklist-url">#</a></h3>
+<ul>
+<li><a href="https://urlhaus.abuse.ch/">https://urlhaus.abuse.ch/</a></li>
+</ul>
+<h3 id="crack-hash">Crack, Hash<a hidden class="anchor" aria-hidden="true" href="#crack-hash">#</a></h3>
+<ul>
+<li><a href="https://crackstation.net/">https://crackstation.net/</a></li>
+<li><a href="https://md5hashing.net/">https://md5hashing.net/</a></li>
+<li><a href="https://hashes.com/en/decrypt/hash">https://hashes.com/en/decrypt/hash</a></li>
+<li><a href="https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes</a></li>
+<li><a href="https://www.onlinehashcrack.com/hash-identification.php">https://www.onlinehashcrack.com/hash-identification.php</a></li>
+<li><a href="https://emn178.github.io/online-tools/">https://emn178.github.io/online-tools/</a></li>
+<li><a href="https://www.srihash.org/">https://www.srihash.org/</a></li>
+</ul>
+<h3 id="decoding-hexa">Decoding, HEXA<a hidden class="anchor" aria-hidden="true" href="#decoding-hexa">#</a></h3>
+<ul>
+<li><a href="https://emn178.github.io/online-tools/base32_decode.html">https://emn178.github.io/online-tools/base32_decode.html</a></li>
+<li><a href="https://www.base64decode.org/">https://www.base64decode.org/</a></li>
+<li><a href="https://www.dcode.fr/cipher-identifier">https://www.dcode.fr/cipher-identifier</a></li>
+<li><a href="https://morsecode.world/international/translator.html">https://morsecode.world/international/translator.html</a></li>
+<li><a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></li>
+<li><a href="https://cyberchef.io/">https://cyberchef.io/</a></li>
+<li><a href="https://regex101.com/r/zQ3mH7/1">https://regex101.com/r/zQ3mH7/1</a></li>
+</ul>
+<h3 id="downloads-exe">Downloads-exe<a hidden class="anchor" aria-hidden="true" href="#downloads-exe">#</a></h3>
+<ul>
+<li><a href="https://lolbas-project.github.io/">https://lolbas-project.github.io/</a></li>
+</ul>
+<h3 id="education-certificates">Education, certificates<a hidden class="anchor" aria-hidden="true" href="#education-certificates">#</a></h3>
+<ul>
+<li><a href="https://www.cybrary.it/catalog">https://www.cybrary.it/catalog</a></li>
+<li><a href="https://www.giac.org/certifications/security-essentials-gsec/">https://www.giac.org/certifications/security-essentials-gsec/</a></li>
+<li><a href="https://www.isc2.org/certifications/ccsp">https://www.isc2.org/certifications/ccsp</a></li>
+<li><a href="https://www.comptia.org/training/certmaster-learn/securitysection2">https://www.comptia.org/training/certmaster-learn/securitysection2</a></li>
+</ul>
+<h3 id="encryption-cryptography">Encryption, Cryptography<a hidden class="anchor" aria-hidden="true" href="#encryption-cryptography">#</a></h3>
+<ul>
+<li><a href="https://cryptii.com/pipes/caesar-cipher">https://cryptii.com/pipes/caesar-cipher</a></li>
+</ul>
+<h3 id="error-codes">Error Codes<a hidden class="anchor" aria-hidden="true" href="#error-codes">#</a></h3>
+<ul>
+<li><a href="https://hstechdocs.helpsystems.com/manuals/globalscape/cuteftpmacpro3/Numbered_FTP_status_and_error_codes.htm?ref=securitynguyen.com">https://hstechdocs.helpsystems.com/manuals/globalscape/cuteftpmacpro3/Numbered_FTP_status_and_error_codes.htm?ref=securitynguyen.com</a></li>
+</ul>
+<h3 id="exploit-vulnerability-database">Exploit, Vulnerability Database<a hidden class="anchor" aria-hidden="true" href="#exploit-vulnerability-database">#</a></h3>
+<ul>
+<li><a href="https://www.exploit-db.com/">https://www.exploit-db.com/</a></li>
+<li><a href="https://www.cve.org/">https://www.cve.org/</a></li>
+</ul>
+<h3 id="ip-calculator">IP Calculator<a hidden class="anchor" aria-hidden="true" href="#ip-calculator">#</a></h3>
+<ul>
+<li><a href="https://jodies.de/ipcalc">https://jodies.de/ipcalc</a></li>
+</ul>
+<h3 id="linux">Linux<a hidden class="anchor" aria-hidden="true" href="#linux">#</a></h3>
+<ul>
+<li><a href="https://ubuntu.com/">https://ubuntu.com/</a></li>
+<li><a href="https://www.linuxmint.com/">https://www.linuxmint.com/</a></li>
+<li><a href="https://www.kali.org/">https://www.kali.org/</a></li>
+<li><a href="https://www.centos.org/">https://www.centos.org/</a></li>
+<li><a href="https://fishshell.com/">https://fishshell.com/</a></li>
+</ul>
+<h3 id="mac-address-lookup">MAC Address Lookup<a hidden class="anchor" aria-hidden="true" href="#mac-address-lookup">#</a></h3>
+<ul>
+<li><a href="https://maclookup.app">https://maclookup.app</a></li>
+</ul>
+<h3 id="magic-number">Magic Number<a hidden class="anchor" aria-hidden="true" href="#magic-number">#</a></h3>
+<ul>
+<li><a href="https://asecuritysite.com/forensics/magic">https://asecuritysite.com/forensics/magic</a></li>
+</ul>
+<h3 id="malware-databases">Malware Databases<a hidden class="anchor" aria-hidden="true" href="#malware-databases">#</a></h3>
+<ul>
+<li><a href="https://malshare.com/">https://malshare.com/</a></li>
+<li><a href="https://tdm.socprime.com/signup">https://tdm.socprime.com/signup</a></li>
+<li><a href="https://bazaar.abuse.ch/">https://bazaar.abuse.ch/</a></li>
+<li><a href="https://user-agents.net/browsers">https://user-agents.net/browsers</a></li>
+</ul>
+<h3 id="network-protocol-analyzers">Network Protocol Analyzers<a hidden class="anchor" aria-hidden="true" href="#network-protocol-analyzers">#</a></h3>
+<ul>
+<li><a href="https://tshark.dev/">https://tshark.dev/</a></li>
+<li><a href="https://www.tcpdump.org/">https://www.tcpdump.org/</a></li>
+<li><a href="https://www.wireshark.org/">https://www.wireshark.org/</a></li>
+<li><a href="https://nmap.org/man/hu/index.html">https://nmap.org/man/hu/index.html</a></li>
+<li><a href="https://www.snort.org/">https://www.snort.org/</a> (A site for sharing packet capture (pcap) files and malware) samples.</li>
+<li><a href="https://www.malware-traffic-analysis.net/">https://www.malware-traffic-analysis.net/</a></li>
+</ul>
+<h3 id="osint">OSINT<a hidden class="anchor" aria-hidden="true" href="#osint">#</a></h3>
+<ul>
+<li><a href="https://github.com/laramies/theHarvester">https://github.com/laramies/theHarvester</a></li>
+<li><a href="https://www.varonis.com/blog/what-is-osint">https://www.varonis.com/blog/what-is-osint</a></li>
+<li><a href="https://hunter.io/">https://hunter.io/</a></li>
+<li><a href="https://osintframework.com/">https://osintframework.com/</a></li>
+</ul>
+<h3 id="other-search-engines">Other Search Engines<a hidden class="anchor" aria-hidden="true" href="#other-search-engines">#</a></h3>
+<ul>
+<li><a href="https://search.censys.io/">https://search.censys.io/</a></li>
+<li><a href="https://www.shodan.io/">https://www.shodan.io/</a></li>
+<li><a href="https://haveibeenpwned.com/">https://haveibeenpwned.com/</a></li>
+</ul>
+<h3 id="phishing">Phishing<a hidden class="anchor" aria-hidden="true" href="#phishing">#</a></h3>
+<ul>
+<li><a href="https://www.knowbe4.com/resource-center/phishing">https://www.knowbe4.com/resource-center/phishing</a></li>
+<li><a href="https://www.itgovernance.co.uk/blog/5-ways-to-detect-a-phishing-email">https://www.itgovernance.co.uk/blog/5-ways-to-detect-a-phishing-email</a></li>
+<li><a href="https://cheapsslsecurity.com/blog/10-phishing-email-examples-you-need-to-see/">https://cheapsslsecurity.com/blog/10-phishing-email-examples-you-need-to-see/</a></li>
+<li><a href="https://phishingquiz.withgoogle.com/">https://phishingquiz.withgoogle.com/</a></li>
+<li><a href="https://app.phishtool.com/">https://app.phishtool.com/</a></li>
+</ul>
+<h3 id="ports">Ports<a hidden class="anchor" aria-hidden="true" href="#ports">#</a></h3>
+<ul>
+<li><a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml</a></li>
+</ul>
+<h3 id="protocol-numbers">Protocol numbers<a hidden class="anchor" aria-hidden="true" href="#protocol-numbers">#</a></h3>
+<ul>
+<li><a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml</a></li>
+</ul>
+<h3 id="reading-magazine">Reading, Magazine<a hidden class="anchor" aria-hidden="true" href="#reading-magazine">#</a></h3>
+<ul>
+<li><a href="https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds">https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds</a></li>
+</ul>
+<h3 id="security-news">Security News<a hidden class="anchor" aria-hidden="true" href="#security-news">#</a></h3>
+<ul>
+<li><a href="https://www.mandiant.com/resources/blog">https://www.mandiant.com/resources/blog</a></li>
+</ul>
+<h3 id="threat-research">Threat Research<a hidden class="anchor" aria-hidden="true" href="#threat-research">#</a></h3>
+<ul>
+<li><a href="https://talosintelligence.com/">https://talosintelligence.com/</a></li>
+<li><a href="https://oasis-open.github.io/cti-documentation/taxii/intro">https://oasis-open.github.io/cti-documentation/taxii/intro</a></li>
+<li><a href="https://oasis-open.github.io/cti-documentation/">https://oasis-open.github.io/cti-documentation/</a></li>
+<li><a href="https://www.mandiant.com/resources">https://www.mandiant.com/resources</a></li>
+<li><a href="https://www.recordedfuture.com/resources">https://www.recordedfuture.com/resources</a></li>
+<li><a href="https://search.censys.io/">https://search.censys.io/</a></li>
+</ul>
+<h3 id="threat-sharing">Threat Sharing<a hidden class="anchor" aria-hidden="true" href="#threat-sharing">#</a></h3>
+<ul>
+<li><a href="https://www.circl.lu/doc/misp/">https://www.circl.lu/doc/misp/</a></li>
+</ul>
+<h3 id="url-extractor">URL Extractor<a hidden class="anchor" aria-hidden="true" href="#url-extractor">#</a></h3>
+<ul>
+<li><a href="https://www.convertcsv.com/url-extractor.htm">https://www.convertcsv.com/url-extractor.htm</a></li>
+</ul>
+<h3 id="virus-check-on-line">Virus Check On-Line<a hidden class="anchor" aria-hidden="true" href="#virus-check-on-line">#</a></h3>
+<ul>
+<li><a href="https://metadefender.opswat.com/">https://metadefender.opswat.com/</a></li>
+<li><a href="https://www.virustotal.com/gui/home/upload">https://www.virustotal.com/gui/home/upload</a></li>
+<li><a href="https://app.any.run/">https://app.any.run/</a></li>
+<li><a href="https://urlscan.io/">https://urlscan.io/</a></li>
+<li><a href="https://abuse.ch/">https://abuse.ch/</a></li>
+<li><a href="https://hybrid-analysis.com/">https://hybrid-analysis.com/</a></li>
+</ul>
+<h3 id="virtualbox">VirtualBox<a hidden class="anchor" aria-hidden="true" href="#virtualbox">#</a></h3>
+<ul>
+<li><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></li>
+</ul>
+<h3 id="whois">WHOIS<a hidden class="anchor" aria-hidden="true" href="#whois">#</a></h3>
+<ul>
+<li><a href="https://www.phishtool.com/">https://www.phishtool.com/</a></li>
+<li><a href="https://www.whois.com/whois/">https://www.whois.com/whois/</a></li>
+<li><a href="https://mxtoolbox.com/">https://mxtoolbox.com/</a></li>
+<li><a href="https://mxtoolbox.com/SuperTool.aspx">https://mxtoolbox.com/SuperTool.aspx</a></li>
+</ul>
+<h3 id="windows">Windows<a hidden class="anchor" aria-hidden="true" href="#windows">#</a></h3>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals">https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals</a></li>
+<li><a href="https://0xcybery.github.io/blog/Core-Processes-In-Windows-System">https://0xcybery.github.io/blog/Core-Processes-In-Windows-System</a></li>
+<li><a href="https://learn.microsoft.com/hu-hu/sysinternals/">https://learn.microsoft.com/hu-hu/sysinternals/</a></li>
+</ul>
+<h3 id="vmware">VMware<a hidden class="anchor" aria-hidden="true" href="#vmware">#</a></h3>
+<ul>
+<li><a href="https://profile.broadcom.com/web/registration">https://profile.broadcom.com/web/registration</a></li>
+</ul>
+<h3 id="wwwagents">WWW/Agents<a hidden class="anchor" aria-hidden="true" href="#wwwagents">#</a></h3>
+<ul>
+<li><a href="https://explore.whatismybrowser.com/useragents/explore/">https://explore.whatismybrowser.com/useragents/explore/</a></li>
+<li><a href="https://outervision.com/power-supply-calculator">https://outervision.com/power-supply-calculator</a></li>
+<li><a href="https://securityheaders.com/">https://securityheaders.com/</a></li>
+</ul>
+<h3 id="-tcp-ip">🇭🇺 TCP IP<a hidden class="anchor" aria-hidden="true" href="#-tcp-ip">#</a></h3>
+<p>Petrényi József
+<strong>TCP/IP - 1 óra alatt:</strong></p>
+<ul>
+<li><a href="https://vmek.oszk.hu/08300/08373/index.phtml">https://vmek.oszk.hu/08300/08373/index.phtml</a></li>
+</ul>
+<p><strong>TCP/IP - alapok:</strong></p>
+<ul>
+<li><a href="https://vmek.oszk.hu/08300/08374">https://vmek.oszk.hu/08300/08374</a></li>
+</ul>
+<h3 id="-linux">🇭🇺 Linux<a hidden class="anchor" aria-hidden="true" href="#-linux">#</a></h3>
+<ul>
+<li><a href="https://www.szabilinux.hu/">https://www.szabilinux.hu/</a></li>
+<li><a href="https://www.letix.hu/">https://www.letix.hu/</a></li>
+</ul>
+<p>🐧 <strong>Conclusions</strong><br>
+The author is now spreading his wings in cybersecurity and making friends with scripting and Phython. He loves Linux and penguins 🐧 and is interested in information technology and likes to tinker with internet networks.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">probbi</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

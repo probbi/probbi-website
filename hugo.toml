@@ -1,0 +1,23 @@
+baseURL = 'https://probbi.com/'
+languageCode = 'hu'
+title = 'probbi'
+theme = 'PaperMod'
+
+[menu]
+    [[menu.main]]
+        name = "Blog"
+        url = "/posts/"
+        weight = 10
+
+    [[menu.main]]
+        name = "TryHackMe"
+        url = "/tryhackme/"
+        weight = 20
+
+    [[menu.main]]
+        name = "Tools"
+        url = "/tryhackme/security-tools/"
+        weight = 30
+
+[params]
+mainSections = [""]

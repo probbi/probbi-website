@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Magyarországi CO₂‑kibocsátás elemzése KSH-adatok alapján | probbi</title>
+<meta name="keywords" content="">
+<meta name="description" content="Ez a projekt egy KSH Adatelemzési feladat keretében készült a magyarországi CO₂ kibocsátásra koncentrálva.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/magyarorszagi-co2kibocsatas-elemz%C3%A9se-ksh-adatok-alapjan/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/magyarorszagi-co2kibocsatas-elemz%C3%A9se-ksh-adatok-alapjan/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="probbi (Alt + H)">probbi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tryhackme/" title="TryHackMe">
+                    <span>TryHackMe</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tryhackme/security-tools/" title="Tools">
+                    <span>Tools</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Magyarországi CO₂‑kibocsátás elemzése KSH-adatok alapján
+    </h1>
+    <div class="post-meta"><span title='2025-11-25 15:00:49 +0100 CET'>November 25, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>A projekt konkrét problémája: Tényekkel és megbízható matematikai modellel igazolható-e, hogy az elmúlt 33 évben Magyarországon fenntartható és mérhető csökkenés következett-e be a CO₂ kibocsátásban, és milyen mértékű ez az éves változás?</p>
+<p>A probléma megoldásához egy Python alapú szkriptet használtam. Az elemzés automatizálásához a Pandas adatszerkesztő a Scikit-learn statisztikai és vizualizációhoz a Matplotlib könyvtárakat alkalmaztam. Ahogy most is látható, a program Lineáris Regressziós számítást végez az adatokon. Az R2 érték 0.851, ami statisztikailag is megerősíti a fő konklúziót: a magyar CO₂ kibocsátás átlagosan 748 ezer tonnával csökkent évente.</p>
+<p>A fejlesztés során a legnagyobb nehézséget a teljes program felépítése jelentette, mert Pythont tanulóként a Pandas és a Scikit-learn ipari könyvtárak logikájának elsajátítása volt az igazi kihívás.</p>
+<p>Összefoglalva: a projekt bizonyította, hogy a statisztikai elemzést és vizualizációt sikerült Python programnyelv segítségével megvalósítanom.</p>
+<h2 id="követelmények-a-futtatáshoz">Követelmények a futtatáshoz:<a hidden class="anchor" aria-hidden="true" href="#követelmények-a-futtatáshoz">#</a></h2>
+<ul>
+<li>pandas</li>
+<li>matplotlib</li>
+<li>scikit-learn</li>
+<li>openpyxl (ha .xlsx-ből szeretnénk olvasni és nem elég a .csv)</li>
+</ul>
+<h2 id="a-ksh-s-mintafájl-letölthető">A KSH-s mintafájl letölthető<a hidden class="anchor" aria-hidden="true" href="#a-ksh-s-mintafájl-letölthető">#</a></h2>
+<p>innen:</p>
+<p><a href="https://www.ksh.hu/stadat_files/kor/hu/kor0017.html">https://www.ksh.hu/stadat_files/kor/hu/kor0017.html</a></p>
+<h2 id="mainpy">main.py<a hidden class="anchor" aria-hidden="true" href="#mainpy">#</a></h2>
+<pre tabindex="0"><code>import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# A feltöltött CSV fájl neve. Írd át, ha XLSX-et használsz!
+fajl_nev = &#34;stadat-kor0017-15.1.1.18-hu.csv&#34; 
+
+# 1. Adatok beolvasása, figyelembe véve a KSH struktúrát:
+#   - sep=&#39;;&#39; pontosvesszős elválasztó
+#   - header=1 (a 2. sor a tényleges oszlopnév: Megnevezés, 1990, 1991, stb.)
+#   - encoding=&#39;iso-8859-2&#39; (Ez a kódolás gyakran megoldja a magyar ékezetes hibákat KSH CSV-nél)
+
+try:
+    df = pd.read_csv(fajl_nev, sep=&#39;;&#39;, header=1, encoding=&#39;iso-8859-2&#39;)
+    
+    # Adatok átalakítása (Transzponálás: oszlopokból sorok)
+    evszam_oszlopok = [str(ev) for ev in range(1990, 2024)]
+
+    # Válasszuk ki a vizsgálandó sort: Szén-dioxid (CO2) (bruttó)
+    co2_sor = df[df[&#39;Megnevezés&#39;].str.contains(&#39;Szén-dioxid \(CO2\) \(bruttó\)&#39;, na=False)].iloc[0]
+
+    # Hozzuk létre a tiszta (Év, Érték) párokat tartalmazó DataFrame-et
+    data = {
+        &#39;Év&#39;: evszam_oszlopok,
+        # Tisztítás: eltávolítjuk a szóközt a számokból (pl. &#39;73 427&#39; -&gt; &#39;73427&#39;), majd float-tá alakítjuk.
+        &#39;Érték&#39;: co2_sor[evszam_oszlopok].astype(str).str.replace(&#39; &#39;, &#39;&#39;, regex=False).astype(float) 
+    }
+    df_tiszta = pd.DataFrame(data)
+
+    # Regresszióhoz való előkészítés
+    x = df_tiszta[&#39;Év&#39;].astype(int).values.reshape(-1, 1) # X (Év)
+    y = df_tiszta[&#39;Érték&#39;].values # Y (Érték)
+
+    print(&#34;Adatok sikeresen beolvasva és előkészítve a CO₂ kibocsátásról.&#34;)
+
+except FileNotFoundError:
+    print(f&#34;HIBA: A &#39;{fajl_nev}&#39; fájl nem található. Győződj meg róla, hogy a Notebookkal egy mappában van.&#34;)
+except Exception as e:
+    print(f&#34;HIBA történt az adatok beolvasása során: {e}. Próbáld meg az encoding=&#39;utf-8&#39; beállítást.&#34;)
+# Lineáris regresszió illesztése
+model = LinearRegression()
+model.fit(x, y)
+y_pred = model.predict(x)
+
+# Regressziós paraméterek
+meredekseg = model.coef_[0]
+metszet = model.intercept_
+r_sq = model.score(x, y) # R²: Illeszkedés jósága
+
+# Statisztikai Elemzés kiíratása
+print(&#34;--- Statisztikai Elemzés: Bruttó CO₂ kibocsátás Magyarországon ---&#34;)
+print(f&#34;Vizsgált időszak: {df_tiszta[&#39;Év&#39;].min()} - {df_tiszta[&#39;Év&#39;].max()}&#34;)
+print(&#34;-&#34; * 50)
+print(f&#34;Átlagos éves kibocsátás: {np.mean(y):.0f} ezer tonna&#34;)
+print(f&#34;Minimum kibocsátás: {np.min(y):.0f} ezer tonna&#34;)
+print(f&#34;Maximum kibocsátás: {np.max(y):.0f} ezer tonna&#34;)
+print(&#34;-&#34; * 50)
+print(f&#34;Trend meredeksége (Éves átlagos változás): {meredekseg:.2f} ezer tonna/év&#34;)
+print(f&#34;Regressziós illeszkedés (R²): {r_sq:.3f}&#34;)
+
+# 2. Vonaldiagram (Idősoros alakulás)
+plt.figure(figsize=(10, 5))
+plt.plot(df_tiszta[&#39;Év&#39;], y, marker=&#39;o&#39;, linestyle=&#39;-&#39;, color=&#39;red&#39;)
+plt.title(&#34;Vonaldiagram: Bruttó Szén-dioxid (CO₂) Kibocsátás (1990–2023)&#34;, fontsize=14)
+plt.xlabel(&#34;Év&#34;, fontsize=12)
+plt.ylabel(&#34;Kibocsátás (ezer tonna)&#34;, fontsize=12)
+plt.grid(True, linestyle=&#39;--&#39;, alpha=0.7)
+plt.tight_layout()
+plt.show()
+
+
+# 3. Pontdiagram + Lineáris Regresszió
+plt.figure(figsize=(10, 5))
+plt.scatter(x, y, color=&#39;red&#39;, label=&#39;Éves kibocsátási adatok (Pontdiagram)&#39;, alpha=0.7) 
+plt.plot(x, y_pred, color=&#39;navy&#39;, label=&#39;Lineáris Trendvonal (Regresszió)&#39;, linewidth=2) 
+
+# Regressziós egyenlet és R^2 kiírása a diagramra
+egyenlet = f&#34;y = {meredekseg:.2f}x + {metszet:.0f}&#34;
+r2_kiiras = f&#34;R² = {r_sq:.3f}&#34;
+
+plt.annotate(egyenlet, xy=(0.05, 0.9), xycoords=&#39;axes fraction&#39;, fontsize=10, color=&#39;navy&#39;)
+plt.annotate(r2_kiiras, xy=(0.05, 0.82), xycoords=&#39;axes fraction&#39;, fontsize=10, color=&#39;navy&#39;)
+
+plt.title(&#34;Pontdiagram és Lineáris Regresszió (CO₂ Kibocsátás)&#34;, fontsize=14)
+plt.xlabel(&#34;Év&#34;, fontsize=12)
+plt.ylabel(&#34;Kibocsátás (ezer tonna)&#34;, fontsize=12)
+plt.legend()
+plt.grid(True, linestyle=&#39;--&#39;, alpha=0.7)
+plt.tight_layout()
+plt.show()
+</code></pre><p>Vonaldiagram, Pontdiagram és Lináris Regresszió eredmények:
+<img alt="Kép" loading="lazy" src="https://images.probbi.com/vonaldiagram-es-linearis-regresszio-eredmenyek.webp"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">probbi</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

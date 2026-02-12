@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>🛡️ TryHackMe  on probbi</title>
+    <link>http://localhost:1313/tryhackme/</link>
+    <description>Recent content in 🛡️ TryHackMe  on probbi</description>
+    <generator>Hugo -- 0.155.1</generator>
+    <language>hu</language>
+    <lastBuildDate>Wed, 11 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tryhackme/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚀 Tools &amp; Resources</title>
+      <link>http://localhost:1313/tryhackme/security-tools/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tryhackme/security-tools/</guid>
+      <description>A comprehensive collection of tools and resources that helped me along my cybersecurity journey.</description>
+    </item>
+    <item>
+      <title>How to Web Works</title>
+      <link>http://localhost:1313/tryhackme/how-to-web-works/</link>
+      <pubDate>Sun, 15 Jun 2025 22:49:00 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/how-to-web-works/</guid>
+      <description>&lt;h3 id=&#34;how-to-web-works&#34;&gt;How To Web Works?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;DNS in Detail&lt;/li&gt;
+&lt;li&gt;HTTP in Detail&lt;/li&gt;
+&lt;li&gt;How Websites Work&lt;/li&gt;
+&lt;li&gt;Putting it all together&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 &lt;strong&gt;Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;dns-in-detail&#34;&gt;DNS in Detail&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What is DNS?
+&lt;ul&gt;
+&lt;li&gt;Domain Hierarchy&lt;/li&gt;
+&lt;li&gt;Record Types&lt;/li&gt;
+&lt;li&gt;Making A Request&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Domain Hierarchy
+&lt;ul&gt;
+&lt;li&gt;Root Domain, Top-Level Domain, Second-Level Domain, Subdomain&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Record Types
+&lt;ul&gt;
+&lt;li&gt;A Record, AAAA Record, CNAME Record, MX Record, TXT Record&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Making A Request&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;http-in-detail&#34;&gt;HTTP in Detail&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What is HTTP(S)?
+&lt;ul&gt;
+&lt;li&gt;HTTP (HyperText Transfer Protocol)&lt;/li&gt;
+&lt;li&gt;HTTPS (HyperText Transfer Protocol Secure)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Requests And Responses
+&lt;ul&gt;
+&lt;li&gt;URL (Uniform Resource Locator)&lt;/li&gt;
+&lt;li&gt;Scheme, User, Host, Port, Path, Query, String, Fragment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Making a Request
+&lt;ul&gt;
+&lt;li&gt;GET / HTTP/1.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTP Methods
+&lt;ul&gt;
+&lt;li&gt;GET Request&lt;/li&gt;
+&lt;li&gt;POST Request&lt;/li&gt;
+&lt;li&gt;PUT Request&lt;/li&gt;
+&lt;li&gt;DELETE Request&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;http-status-codes&#34;&gt;HTTP Status Codes:&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;strong&gt;Code Range&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;strong&gt;Information&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;100 - 199&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Information Response&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;200 - 299&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Success&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;300 - 399&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Redirection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;400 - 499&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Client Errors&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;500 - 599&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Server Errors&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;common-http-status-codes&#34;&gt;Common HTTP Status Codes:&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;strong&gt;Status Code&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;strong&gt;Information&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;200&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;OK&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;201&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Created&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;301&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Permanent Redirect&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;302&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Temporary Redirect&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;400&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Bad Request&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;401&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Not Authorised&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;403&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Forbidden&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;405&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Method Not Allowed&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;404&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Page Not Found&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;500&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Internal Service Error&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;503&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Service Unavailable&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;Headers
+&lt;ul&gt;
+&lt;li&gt;Common Request Headers&lt;/li&gt;
+&lt;li&gt;User-Agent&lt;/li&gt;
+&lt;li&gt;Content-Length&lt;/li&gt;
+&lt;li&gt;Accept-Encoding&lt;/li&gt;
+&lt;li&gt;Cookie&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cookies&lt;/li&gt;
+&lt;li&gt;Making Requests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how-websites-work&#34;&gt;How Websites Work&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML (CSS, Javascript)&lt;/li&gt;
+&lt;li&gt;JavaScript&lt;/li&gt;
+&lt;li&gt;Sensitive Data Exposure&lt;/li&gt;
+&lt;li&gt;HTML Injection&lt;/li&gt;
+&lt;li&gt;HTML
+&lt;ul&gt;
+&lt;li&gt;JavaScript&lt;/li&gt;
+&lt;li&gt;Sensitive Data Exposure&lt;/li&gt;
+&lt;li&gt;HTML Injection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;putting-it-all-together&#34;&gt;Putting it all together&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Other Components
+&lt;ul&gt;
+&lt;li&gt;Load Balancers&lt;/li&gt;
+&lt;li&gt;CDN (Content Delivery Networks)&lt;/li&gt;
+&lt;li&gt;Databases&lt;/li&gt;
+&lt;li&gt;WAF (Web Application Firewall)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How Web Servers Work&lt;/li&gt;
+&lt;li&gt;What is a Web Server?&lt;/li&gt;
+&lt;li&gt;Virtual Hosts&lt;/li&gt;
+&lt;li&gt;Static Vs Dynamic Content&lt;/li&gt;
+&lt;li&gt;Scripting and Backend Languages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;🐧 &lt;strong&gt;Conclusions&lt;/strong&gt;&lt;br&gt;
+These rooms were insightful and helped strengthen my foundational knowledge in the topic. I found the practical exercises especially useful in connecting theoretical concepts with real-world applications. Despite already having some background, I realized there&amp;rsquo;s still a lot to explore and master in this area. It was a valuable learning experience that motivated me to keep digging deeper.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Command Line</title>
+      <link>http://localhost:1313/tryhackme/command-line/</link>
+      <pubDate>Sun, 15 Jun 2025 22:14:02 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/command-line/</guid>
+      <description>&lt;h3 id=&#34;windows-command-line&#34;&gt;Windows Command Line&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Basic System Information&lt;/li&gt;
+&lt;li&gt;Network Troubleshooting&lt;/li&gt;
+&lt;li&gt;File and Disk Management&lt;/li&gt;
+&lt;li&gt;Task and Process Management&lt;/li&gt;
+&lt;li&gt;Conclusion&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;windows-powershell&#34;&gt;Windows PowerShell&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;What Is PowerShell&lt;/li&gt;
+&lt;li&gt;PowerShell Basics&lt;/li&gt;
+&lt;li&gt;Navigating the File System and Working with Files&lt;/li&gt;
+&lt;li&gt;Piping, Filtering, and Sorting Data&lt;/li&gt;
+&lt;li&gt;System and Network Information&lt;/li&gt;
+&lt;li&gt;Real-Time System Analysis&lt;/li&gt;
+&lt;li&gt;Scripting&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;linux-shells&#34;&gt;Linux Shells&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction to Linux Shells&lt;/li&gt;
+&lt;li&gt;How To Interact With a Shell?&lt;/li&gt;
+&lt;li&gt;Types of Linux Shells&lt;/li&gt;
+&lt;li&gt;Shell Scripting and Components&lt;/li&gt;
+&lt;li&gt;The Locker Script&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 &lt;strong&gt;Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;windows-command-line-1&#34;&gt;Windows Command Line&lt;/h2&gt;
+&lt;h3 id=&#34;basic-system-information&#34;&gt;Basic System Information&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;command &lt;code&gt;set&lt;/code&gt;, &lt;code&gt;PATH=&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;set ALLUSERSPROFILE=C:\ProgramData&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;systeminfo&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;more&lt;/code&gt;, &lt;code&gt;driverquery&lt;/code&gt;, &lt;code&gt;driverquery | more&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;network-troubleshooting&#34;&gt;Network Troubleshooting&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;ipconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\ipconfig /all&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;ping target_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;tracert example.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;time-to-live (TTL)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;nslookup example.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;netstat&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-a&lt;/code&gt; displays all established connections and listening ports&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-b&lt;/code&gt; shows the program associated with each listening port and established connection&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-o&lt;/code&gt; reveals the process ID (PID) associated with the connection&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-n&lt;/code&gt; uses a numerical form for addresses and port numbers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sshd.exe&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\&amp;gt;netstat -abon&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;file-and-disk-management&#34;&gt;File and Disk Management&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd&lt;/code&gt; - current drive and directory&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dir&lt;/code&gt; - child directories&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dir /a&lt;/code&gt; - displays hidden and system files as well&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dir /s&lt;/code&gt; - displays files in the current directory and all subdirectories.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C:\Users\ibuv4r.k&amp;gt;tree&lt;/code&gt; - visually represent the child directories and subdirectories&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;del&lt;/code&gt; - deletes a file (del *.png)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;copy&lt;/code&gt; - copies a file to a new location (*.txt)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;move&lt;/code&gt; - oves a file to a new location&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt; - displays the contents of a text file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;more&lt;/code&gt; - shows a file&amp;rsquo;s content one page at a time&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rmdir&lt;/code&gt; - delete a folder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;task-and-process-management&#34;&gt;Task and Process Management&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tasklist&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;taskkill&lt;/code&gt; /PID (pid)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tasklist&lt;/code&gt; /FI (filter)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;chkdsk&lt;/code&gt; - checks the file system and disk for errors, helping identify bad sectors or corrupt files&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;driverquery&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sfc /scannow&lt;/code&gt; - scans and repairs corrupted system files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;windows-powershell-1&#34;&gt;Windows PowerShell&lt;/h2&gt;
+&lt;h3 id=&#34;what-is-powershell&#34;&gt;What Is PowerShell&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;From the official Microsoft page: “PowerShell is a cross-platform task automation solution made up of&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>02 Windows and AD Fundamentals</title>
+      <link>http://localhost:1313/tryhackme/02-windows-and-ad-fundamentals/</link>
+      <pubDate>Sun, 15 Jun 2025 22:07:03 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/02-windows-and-ad-fundamentals/</guid>
+      <description>&lt;h1 id=&#34;windows-and-ad-fundamentals&#34;&gt;Windows and AD Fundamentals&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;System Configuration&lt;/li&gt;
+&lt;li&gt;Change UAC Settings&lt;/li&gt;
+&lt;li&gt;Computer Management&lt;/li&gt;
+&lt;li&gt;System Information&lt;/li&gt;
+&lt;li&gt;Resource Monitor&lt;/li&gt;
+&lt;li&gt;Command Prompt&lt;/li&gt;
+&lt;li&gt;Registry Editor&lt;/li&gt;
+&lt;li&gt;Conclusion&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 &lt;strong&gt;Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;2-system-configuration&#34;&gt;2. System Configuration&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;System Configuration&lt;/strong&gt; - &lt;code&gt;MSConfig&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;General&lt;/li&gt;
+&lt;li&gt;Boot&lt;/li&gt;
+&lt;li&gt;Services&lt;/li&gt;
+&lt;li&gt;Startup&lt;/li&gt;
+&lt;li&gt;Tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Task Manager&lt;/strong&gt; - &lt;code&gt;taskmgr&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-change-uac-settings&#34;&gt;3. Change UAC Settings&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;User Account Control&lt;/strong&gt; - &lt;code&gt;UAC&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;User Account Control helps prevent potentially harmful programs from making changes our computers.&lt;/p&gt;
+&lt;h3 id=&#34;4-computer-management&#34;&gt;4. Computer Management&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Computer Management&lt;/strong&gt; - &lt;code&gt;compmgmt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This utility has three primary sections: &lt;strong&gt;System Tools&lt;/strong&gt;, &lt;strong&gt;Storage&lt;/strong&gt;, and &lt;strong&gt;Services and Applications&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>01 Windows and AD Fundamentals</title>
+      <link>http://localhost:1313/tryhackme/01-windows-and-ad-fundamentals/</link>
+      <pubDate>Sun, 15 Jun 2025 21:43:56 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/01-windows-and-ad-fundamentals/</guid>
+      <description>&lt;h2 id=&#34;windows-fundamentals-1&#34;&gt;Windows Fundamentals 1&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction to Windows&lt;/li&gt;
+&lt;li&gt;Windows Editions&lt;/li&gt;
+&lt;li&gt;The Desktop (GUI)&lt;/li&gt;
+&lt;li&gt;The File System&lt;/li&gt;
+&lt;li&gt;The Windows\System32 Folders&lt;/li&gt;
+&lt;li&gt;User Accounts, Profiles, and Permissions&lt;/li&gt;
+&lt;li&gt;User Account Control&lt;/li&gt;
+&lt;li&gt;Settings and the Control Panel&lt;/li&gt;
+&lt;li&gt;Task Manager&lt;/li&gt;
+&lt;li&gt;Conclusion&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 &lt;strong&gt;Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;h4 id=&#34;1-introduction-to-windows&#34;&gt;1. Introduction to Windows&lt;/h4&gt;
+&lt;p&gt;Connect to virtual machine via Remote Desktop&lt;/p&gt;
+&lt;h4 id=&#34;2-windows-editions&#34;&gt;2. Windows Editions&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Windows 10 will reach end of support on October 14, 2025 (This applies to the following editions: Home, Pro, Pro Education, Pro for Workstations)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Offensive Security Intro</title>
+      <link>http://localhost:1313/tryhackme/offensive-security-intro/</link>
+      <pubDate>Sun, 15 Jun 2025 21:07:34 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/offensive-security-intro/</guid>
+      <description>&lt;h1 id=&#34;start-your-cyber-security-journey&#34;&gt;Start Your Cyber Security Journey&lt;/h1&gt;
+&lt;h2 id=&#34;offensive-security-intro&#34;&gt;Offensive Security Intro&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is Offensive Security?&lt;/li&gt;
+&lt;li&gt;Hacking your first machine&lt;/li&gt;
+&lt;li&gt;Careers in cyber security&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;defensive-security&#34;&gt;Defensive Security&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction to Defensive Security&lt;/li&gt;
+&lt;li&gt;Areas of Defensive Security&lt;/li&gt;
+&lt;li&gt;Practical Example of Defensive Security&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 &lt;strong&gt;Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;what-is-offensive-security-intro&#34;&gt;What is Offensive Security Intro?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Beginning Your Learning Journey&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hacking-your-first-machine&#34;&gt;Hacking your first machine&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;gobuster -u http://fakebank.thm -w wordlist.txt dir&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;careers-in-cyber-security&#34;&gt;Careers in cyber security&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Penetration Tester, Red Teamer,  Security Engineer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;introduction-to-defensive-security&#34;&gt;Introduction to Defensive Security&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Preventing intrusions&lt;/li&gt;
+&lt;li&gt;Detecting intrusions&lt;/li&gt;
+&lt;li&gt;Blue teams are part of the defensive security landscape
+&lt;ul&gt;
+&lt;li&gt;User cyber security awareness&lt;/li&gt;
+&lt;li&gt;Documenting and managing assets&lt;/li&gt;
+&lt;li&gt;Updating and patching systems&lt;/li&gt;
+&lt;li&gt;Setting up preventative security devices&lt;/li&gt;
+&lt;li&gt;Setting up logging and monitoring devices&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;areas-of-defensive-security&#34;&gt;Areas of Defensive Security&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Security Operations Center (SOC)
+&lt;ul&gt;
+&lt;li&gt;Vulnerabilities&lt;/li&gt;
+&lt;li&gt;Policy violations&lt;/li&gt;
+&lt;li&gt;Unauthorized activity&lt;/li&gt;
+&lt;li&gt;Network intrusions&lt;/li&gt;
+&lt;li&gt;Threat Intelligence&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Digital Forensics and Incident Response (DFIR)
+&lt;ul&gt;
+&lt;li&gt;Digital Forensics&lt;/li&gt;
+&lt;li&gt;Incident Response&lt;/li&gt;
+&lt;li&gt;Malware Analysis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Digital Forensics
+&lt;ul&gt;
+&lt;li&gt;File System&lt;/li&gt;
+&lt;li&gt;System memory&lt;/li&gt;
+&lt;li&gt;System logs&lt;/li&gt;
+&lt;li&gt;Network logs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Incident Response
+&lt;ul&gt;
+&lt;li&gt;Preparation&lt;/li&gt;
+&lt;li&gt;Detection and Analysis&lt;/li&gt;
+&lt;li&gt;Containment, Eradication, and Recovery&lt;/li&gt;
+&lt;li&gt;Post-Incident Activity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Malware Analysis
+&lt;ul&gt;
+&lt;li&gt;virus is a piece of code&lt;/li&gt;
+&lt;li&gt;Trojan Horse&lt;/li&gt;
+&lt;li&gt;Ransomware&lt;/li&gt;
+&lt;li&gt;Static analysis&lt;/li&gt;
+&lt;li&gt;Dynamic analysis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;practical-example-of-defensive-security&#34;&gt;Practical Example of Defensive Security&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Simulating a SIEM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;🐧 &lt;strong&gt;Conclusion:&lt;/strong&gt;&lt;br&gt;
+This was a very short introduction.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Start Your Cyber Security Journey</title>
+      <link>http://localhost:1313/tryhackme/start-your-cyber-security-journey/</link>
+      <pubDate>Sun, 15 Jun 2025 20:23:42 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/start-your-cyber-security-journey/</guid>
+      <description>&lt;p&gt;Explore offensive and defensive cyber security via interactive exercises and acquire the essential search skills to find information.&lt;/p&gt;
+&lt;p&gt;Offensive Security Intro Hack your first website (legally in a safe environment) and experience an ethical hacker&amp;rsquo;s job.&lt;/p&gt;
+&lt;p&gt;Defensive Security Intro Introducing defensive security and related topics, such as Threat Intelligence, SOC, DFIR, Malware Analysis, and SIEM.&lt;/p&gt;
+&lt;p&gt;Search Skills Learn to efficiently search the Internet and use specialized search engines and technical docs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TryHackMe SOC1 Lab Notes</title>
+      <link>http://localhost:1313/tryhackme/tryhackme-sock-1-lab-notes/</link>
+      <pubDate>Sun, 15 Jun 2025 20:07:45 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/tryhackme-sock-1-lab-notes/</guid>
+      <description>&lt;p&gt;This notes contains my personal notes and summaries from the &lt;a href=&#34;https://tryhackme.com&#34;&gt;TryHackMe&lt;/a&gt; platform, focusing on the &lt;strong&gt;SOC Level 1&lt;/strong&gt; path and Blue Team topics and SIEM basics.&lt;/p&gt;
+&lt;p&gt;The goal is to document what I’ve learned, strengthen my cybersecurity knowledge, and build a practical portfolio others can follow.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tools-that-helped-me-along-the-way&#34;&gt;Tools that helped me along the way&lt;/h2&gt;
+&lt;h3 id=&#34;address-network-search&#34;&gt;Address, Network Search&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.abuseipdb.com/&#34;&gt;https://www.abuseipdb.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wigle.net/index&#34;&gt;https://wigle.net/index&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.arin.net/&#34;&gt;https://www.arin.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ipinfo.io/&#34;&gt;https://ipinfo.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;adversary-tactics-and-techniques-knowledge-base&#34;&gt;Adversary Tactics and Techniques, Knowledge Base&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://attack.mitre.org/&#34;&gt;https://attack.mitre.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;analyze-headers&#34;&gt;Analyze Headers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://toolbox.googleapps.com/apps/messageheader/analyzeheader&#34;&gt;https://toolbox.googleapps.com/apps/messageheader/analyzeheader&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mha.azurewebsites.net/&#34;&gt;https://mha.azurewebsites.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mailheader.org/&#34;&gt;https://mailheader.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;blocklist-botnet&#34;&gt;Blocklist Botnet&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://feodotracker.abuse.ch/&#34;&gt;https://feodotracker.abuse.ch/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;blocklist-programs&#34;&gt;Blocklist Programs&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://threatfox.abuse.ch/&#34;&gt;https://threatfox.abuse.ch/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;blocklist-ssl&#34;&gt;Blocklist SSL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sslbl.abuse.ch/&#34;&gt;https://sslbl.abuse.ch/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;blocklist-url&#34;&gt;Blocklist URL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://urlhaus.abuse.ch/&#34;&gt;https://urlhaus.abuse.ch/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;crack-hash&#34;&gt;Crack, Hash&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://crackstation.net/&#34;&gt;https://crackstation.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://md5hashing.net/&#34;&gt;https://md5hashing.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hashes.com/en/decrypt/hash&#34;&gt;https://hashes.com/en/decrypt/hash&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hashcat.net/wiki/doku.php?id=example_hashes&#34;&gt;https://hashcat.net/wiki/doku.php?id=example_hashes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.onlinehashcrack.com/hash-identification.php&#34;&gt;https://www.onlinehashcrack.com/hash-identification.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://emn178.github.io/online-tools/&#34;&gt;https://emn178.github.io/online-tools/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.srihash.org/&#34;&gt;https://www.srihash.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;decoding-hexa&#34;&gt;Decoding, HEXA&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://emn178.github.io/online-tools/base32_decode.html&#34;&gt;https://emn178.github.io/online-tools/base32_decode.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.base64decode.org/&#34;&gt;https://www.base64decode.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dcode.fr/cipher-identifier&#34;&gt;https://www.dcode.fr/cipher-identifier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://morsecode.world/international/translator.html&#34;&gt;https://morsecode.world/international/translator.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gchq.github.io/CyberChef/&#34;&gt;https://gchq.github.io/CyberChef/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cyberchef.io/&#34;&gt;https://cyberchef.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://regex101.com/r/zQ3mH7/1&#34;&gt;https://regex101.com/r/zQ3mH7/1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;downloads-exe&#34;&gt;Downloads-exe&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://lolbas-project.github.io/&#34;&gt;https://lolbas-project.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;education-certificates&#34;&gt;Education, certificates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cybrary.it/catalog&#34;&gt;https://www.cybrary.it/catalog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.giac.org/certifications/security-essentials-gsec/&#34;&gt;https://www.giac.org/certifications/security-essentials-gsec/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.isc2.org/certifications/ccsp&#34;&gt;https://www.isc2.org/certifications/ccsp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.comptia.org/training/certmaster-learn/securitysection2&#34;&gt;https://www.comptia.org/training/certmaster-learn/securitysection2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;encryption-cryptography&#34;&gt;Encryption, Cryptography&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cryptii.com/pipes/caesar-cipher&#34;&gt;https://cryptii.com/pipes/caesar-cipher&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;error-codes&#34;&gt;Error Codes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hstechdocs.helpsystems.com/manuals/globalscape/cuteftpmacpro3/Numbered_FTP_status_and_error_codes.htm?ref=securitynguyen.com&#34;&gt;https://hstechdocs.helpsystems.com/manuals/globalscape/cuteftpmacpro3/Numbered_FTP_status_and_error_codes.htm?ref=securitynguyen.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exploit-vulnerability-database&#34;&gt;Exploit, Vulnerability Database&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.exploit-db.com/&#34;&gt;https://www.exploit-db.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cve.org/&#34;&gt;https://www.cve.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ip-calculator&#34;&gt;IP Calculator&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jodies.de/ipcalc&#34;&gt;https://jodies.de/ipcalc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ubuntu.com/&#34;&gt;https://ubuntu.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.linuxmint.com/&#34;&gt;https://www.linuxmint.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kali.org/&#34;&gt;https://www.kali.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.centos.org/&#34;&gt;https://www.centos.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fishshell.com/&#34;&gt;https://fishshell.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mac-address-lookup&#34;&gt;MAC Address Lookup&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://maclookup.app&#34;&gt;https://maclookup.app&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;magic-number&#34;&gt;Magic Number&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://asecuritysite.com/forensics/magic&#34;&gt;https://asecuritysite.com/forensics/magic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;malware-databases&#34;&gt;Malware Databases&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://malshare.com/&#34;&gt;https://malshare.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tdm.socprime.com/signup&#34;&gt;https://tdm.socprime.com/signup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bazaar.abuse.ch/&#34;&gt;https://bazaar.abuse.ch/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://user-agents.net/browsers&#34;&gt;https://user-agents.net/browsers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;network-protocol-analyzers&#34;&gt;Network Protocol Analyzers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tshark.dev/&#34;&gt;https://tshark.dev/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tcpdump.org/&#34;&gt;https://www.tcpdump.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/&#34;&gt;https://www.wireshark.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nmap.org/man/hu/index.html&#34;&gt;https://nmap.org/man/hu/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.snort.org/&#34;&gt;https://www.snort.org/&lt;/a&gt; (A site for sharing packet capture (pcap) files and malware) samples.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.malware-traffic-analysis.net/&#34;&gt;https://www.malware-traffic-analysis.net/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;osint&#34;&gt;OSINT&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/laramies/theHarvester&#34;&gt;https://github.com/laramies/theHarvester&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.varonis.com/blog/what-is-osint&#34;&gt;https://www.varonis.com/blog/what-is-osint&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hunter.io/&#34;&gt;https://hunter.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://osintframework.com/&#34;&gt;https://osintframework.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;other-search-engines&#34;&gt;Other Search Engines&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://search.censys.io/&#34;&gt;https://search.censys.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.shodan.io/&#34;&gt;https://www.shodan.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://haveibeenpwned.com/&#34;&gt;https://haveibeenpwned.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;phishing&#34;&gt;Phishing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.knowbe4.com/resource-center/phishing&#34;&gt;https://www.knowbe4.com/resource-center/phishing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.itgovernance.co.uk/blog/5-ways-to-detect-a-phishing-email&#34;&gt;https://www.itgovernance.co.uk/blog/5-ways-to-detect-a-phishing-email&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cheapsslsecurity.com/blog/10-phishing-email-examples-you-need-to-see/&#34;&gt;https://cheapsslsecurity.com/blog/10-phishing-email-examples-you-need-to-see/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://phishingquiz.withgoogle.com/&#34;&gt;https://phishingquiz.withgoogle.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://app.phishtool.com/&#34;&gt;https://app.phishtool.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ports&#34;&gt;Ports&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&#34;&gt;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;protocol-numbers&#34;&gt;Protocol numbers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml&#34;&gt;https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;reading-magazine&#34;&gt;Reading, Magazine&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds&#34;&gt;https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;security-news&#34;&gt;Security News&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mandiant.com/resources/blog&#34;&gt;https://www.mandiant.com/resources/blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;threat-research&#34;&gt;Threat Research&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://talosintelligence.com/&#34;&gt;https://talosintelligence.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://oasis-open.github.io/cti-documentation/taxii/intro&#34;&gt;https://oasis-open.github.io/cti-documentation/taxii/intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://oasis-open.github.io/cti-documentation/&#34;&gt;https://oasis-open.github.io/cti-documentation/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mandiant.com/resources&#34;&gt;https://www.mandiant.com/resources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.recordedfuture.com/resources&#34;&gt;https://www.recordedfuture.com/resources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://search.censys.io/&#34;&gt;https://search.censys.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;threat-sharing&#34;&gt;Threat Sharing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.circl.lu/doc/misp/&#34;&gt;https://www.circl.lu/doc/misp/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;url-extractor&#34;&gt;URL Extractor&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.convertcsv.com/url-extractor.htm&#34;&gt;https://www.convertcsv.com/url-extractor.htm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;virus-check-on-line&#34;&gt;Virus Check On-Line&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://metadefender.opswat.com/&#34;&gt;https://metadefender.opswat.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.virustotal.com/gui/home/upload&#34;&gt;https://www.virustotal.com/gui/home/upload&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://app.any.run/&#34;&gt;https://app.any.run/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://urlscan.io/&#34;&gt;https://urlscan.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://abuse.ch/&#34;&gt;https://abuse.ch/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hybrid-analysis.com/&#34;&gt;https://hybrid-analysis.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;virtualbox&#34;&gt;VirtualBox&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;https://www.virtualbox.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;whois&#34;&gt;WHOIS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.phishtool.com/&#34;&gt;https://www.phishtool.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.whois.com/whois/&#34;&gt;https://www.whois.com/whois/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mxtoolbox.com/&#34;&gt;https://mxtoolbox.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mxtoolbox.com/SuperTool.aspx&#34;&gt;https://mxtoolbox.com/SuperTool.aspx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals&#34;&gt;https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://0xcybery.github.io/blog/Core-Processes-In-Windows-System&#34;&gt;https://0xcybery.github.io/blog/Core-Processes-In-Windows-System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/hu-hu/sysinternals/&#34;&gt;https://learn.microsoft.com/hu-hu/sysinternals/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vmware&#34;&gt;VMware&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://profile.broadcom.com/web/registration&#34;&gt;https://profile.broadcom.com/web/registration&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;wwwagents&#34;&gt;WWW/Agents&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://explore.whatismybrowser.com/useragents/explore/&#34;&gt;https://explore.whatismybrowser.com/useragents/explore/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://outervision.com/power-supply-calculator&#34;&gt;https://outervision.com/power-supply-calculator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://securityheaders.com/&#34;&gt;https://securityheaders.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-tcp-ip&#34;&gt;🇭🇺 TCP IP&lt;/h3&gt;
+&lt;p&gt;Petrényi József
+&lt;strong&gt;TCP/IP - 1 óra alatt:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows Fundamentals</title>
+      <link>http://localhost:1313/tryhackme/windows-fundamentals/</link>
+      <pubDate>Sun, 15 Jun 2025 10:06:17 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/windows-fundamentals/</guid>
+      <description>&lt;h2 id=&#34;-notes&#34;&gt;📝 Notes&lt;/h2&gt;
+&lt;h3 id=&#34;windows-fundamentals-1&#34;&gt;Windows Fundamentals 1&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction to Windows&lt;/li&gt;
+&lt;li&gt;Windows Editions&lt;/li&gt;
+&lt;li&gt;The Desktop (GUI)&lt;/li&gt;
+&lt;li&gt;The File System
+&lt;ul&gt;
+&lt;li&gt;FAT, HPFS, NTFS and Alternate Data Streams (ADS)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The Windows\System32 Folders
+&lt;ul&gt;
+&lt;li&gt;%windir% and System32&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;User Accounts, Profiles, and Permissions&lt;/li&gt;
+&lt;li&gt;User Account Control&lt;/li&gt;
+&lt;li&gt;Settings and the Control Panel&lt;/li&gt;
+&lt;li&gt;Task Manager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;windows-fundamentals-2&#34;&gt;Windows Fundamentals 2&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;System Configuration
+&lt;ul&gt;
+&lt;li&gt;MSConfig (General, Boot, Services, Startup, Tools)&lt;/li&gt;
+&lt;li&gt;Change UAC Settings&lt;/li&gt;
+&lt;li&gt;User Account Control (UAC)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Computer Management
+&lt;ul&gt;
+&lt;li&gt;Computer Management (compmgmt), Event Viewer, Event Logs, Device Manager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;System Information
+&lt;ul&gt;
+&lt;li&gt;System Information (msinfo32)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Resource Monitor
+&lt;ul&gt;
+&lt;li&gt;Resource Monitor (resmon)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Command Prompt
+&lt;ul&gt;
+&lt;li&gt;command prompt (cmd), hostname, whoami, ipconfig, /?, netstat, net, net user, net help user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Registry Editor
+&lt;ul&gt;
+&lt;li&gt;Registry Editor (regedit)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;windows-fundamentals-3&#34;&gt;Windows Fundamentals 3&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows Updates&lt;/li&gt;
+&lt;li&gt;Windows Security&lt;/li&gt;
+&lt;li&gt;Virus &amp;amp; threat protection
+&lt;ul&gt;
+&lt;li&gt;Manage settings (Real-time protection, Cloud-delivered protection, Automatic sample submission, Controlled folder access, Exclusions, Notifications)&lt;/li&gt;
+&lt;li&gt;Virus &amp;amp; threat protection updates (Check for updates)&lt;/li&gt;
+&lt;li&gt;Ransomware protection (Controlled folder access)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Firewall &amp;amp; network protection
+&lt;ul&gt;
+&lt;li&gt;Domain, Private, and Public network.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;App &amp;amp; browser control
+&lt;ul&gt;
+&lt;li&gt;Exploit protection (Control flow guard (CFG), Data Execution Prevention (DEP), Force randomization for images (Mandatory ASLR)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Device security
+&lt;ul&gt;
+&lt;li&gt;Core isolation (Memory Integrity) and Security processor&lt;/li&gt;
+&lt;li&gt;Trusted Platform Module (TPM)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;BitLocker&lt;/li&gt;
+&lt;li&gt;Volume Shadow Copy Service
+&lt;ul&gt;
+&lt;li&gt;Create a restore point&lt;/li&gt;
+&lt;li&gt;Perform system restore&lt;/li&gt;
+&lt;li&gt;Configure restore settings&lt;/li&gt;
+&lt;li&gt;Delete restore points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;🐧 &lt;strong&gt;Conclusions&lt;/strong&gt; &lt;br&gt;
+The Windows Fundamentals 1–3 rooms were valuable even with my prior IT experience, as they reinforced and expanded my understanding of the Windows operating system from a security perspective. The modules provided structured insights into system configuration, user permissions, and built-in security tools like BitLocker, Defender, and the Windows Registry. Revisiting these topics helped me connect previous hands-on experience with core Blue Team concepts, making it easier to identify and interpret potential threats in a SOC environment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Network Fundamentals</title>
+      <link>http://localhost:1313/tryhackme/network-fundamentals/</link>
+      <pubDate>Sun, 15 Jun 2025 08:33:13 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/network-fundamentals/</guid>
+      <description>&lt;h3 id=&#34;network-fundamentals&#34;&gt;Network Fundamentals&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;What is Networking?&lt;/li&gt;
+&lt;li&gt;Intro to LAN&lt;/li&gt;
+&lt;li&gt;OSI Model&lt;/li&gt;
+&lt;li&gt;Packets &amp;amp; Frames&lt;/li&gt;
+&lt;li&gt;Extending Your Network&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 Notes&lt;/h2&gt;
+&lt;h3 id=&#34;what-is-networking&#34;&gt;What is Networking?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the Internet?&lt;/li&gt;
+&lt;li&gt;Identifying Devices on a Network
+&lt;ul&gt;
+&lt;li&gt;IP addresses (IPv4, IPv6), MAC addresses,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ping (ICMP)
+&lt;ul&gt;
+&lt;li&gt;ICMP (Internet Control Message Protocol)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;intro-to-lan&#34;&gt;Intro to LAN&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;LAN Topologies&lt;/li&gt;
+&lt;li&gt;Switches&lt;/li&gt;
+&lt;li&gt;Routers&lt;/li&gt;
+&lt;li&gt;Subnetting
+&lt;ul&gt;
+&lt;li&gt;network address&lt;/li&gt;
+&lt;li&gt;host address&lt;/li&gt;
+&lt;li&gt;default gateway&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ARP Protocol
+&lt;ul&gt;
+&lt;li&gt;ARP (Address Resolution)&lt;/li&gt;
+&lt;li&gt;ARP Request and replay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;DCHP Protocol
+&lt;ul&gt;
+&lt;li&gt;DHCP discover, offer, request, ACK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Answers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;osi-model&#34;&gt;OSI Model&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Layers
+&lt;ul&gt;
+&lt;li&gt;Physical - electrical, mechanical, and procedural interfaces&lt;/li&gt;
+&lt;li&gt;Data Link - MAC (Media Access Control), Network Interface Card (NIC), Logical Link Control (LLC)&lt;/li&gt;
+&lt;li&gt;Network-OSPF (Open Shortest Path First) and RIP (Routing Information Protocol)&lt;/li&gt;
+&lt;li&gt;Transport - (TCP, UDP)&lt;/li&gt;
+&lt;li&gt;Session - Communication direction full-duplex or half-duplex&lt;/li&gt;
+&lt;li&gt;Presentation - Data Translation, Data Compression, Data Encryption/Decryption&lt;/li&gt;
+&lt;li&gt;Application - HTTP, SMTP, FTP, Telnet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;packets--frames&#34;&gt;Packets &amp;amp; Frames&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP/IP (The Three-Way Handshake)
+&lt;ul&gt;
+&lt;li&gt;Source Port&lt;/li&gt;
+&lt;li&gt;Destination Port&lt;/li&gt;
+&lt;li&gt;Source IP&lt;/li&gt;
+&lt;li&gt;Destination IP&lt;/li&gt;
+&lt;li&gt;Sequence Number&lt;/li&gt;
+&lt;li&gt;Acknowledgment&lt;/li&gt;
+&lt;li&gt;Number&lt;/li&gt;
+&lt;li&gt;Checksum&lt;/li&gt;
+&lt;li&gt;Data&lt;/li&gt;
+&lt;li&gt;Flags&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Practical — Handshake
+&lt;ul&gt;
+&lt;li&gt;SYN, SYN/ACK, ACK, DATA, FIN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;UDP/IP - No three-way handshake&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;extending-your-network&#34;&gt;Extending Your Network&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Port Forwarding&lt;/li&gt;
+&lt;li&gt;Intranet&lt;/li&gt;
+&lt;li&gt;Firewalls (permit, deny)
+&lt;ul&gt;
+&lt;li&gt;permit, deny&lt;/li&gt;
+&lt;li&gt;stateful, stateless&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;VPN Basics
+&lt;ul&gt;
+&lt;li&gt;PPP - Point to Point Protocol&lt;/li&gt;
+&lt;li&gt;PPTP - Point to Point Tunnelling Protocol&lt;/li&gt;
+&lt;li&gt;IPSec - Internet Protocol Security&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;LAN Networing Devices&lt;/li&gt;
+&lt;li&gt;Routers&lt;/li&gt;
+&lt;li&gt;Switches&lt;/li&gt;
+&lt;li&gt;VLAN (Virtual Local Area Network)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;🐧 &lt;strong&gt;Conclusions&lt;/strong&gt;&lt;br&gt;
+Reviewing the OSI model is always a good idea, even for those already familiar with it. Understanding how each layer functions and interacts provides a strong foundation for diagnosing network issues and analyzing security events. This knowledge is especially useful in both offensive and defensive cybersecurity roles. It reinforces how data moves across systems, helping to make sense of complex communication processes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux Fundamentals</title>
+      <link>http://localhost:1313/tryhackme/linux-fundamentals/</link>
+      <pubDate>Sun, 15 Jun 2025 07:23:04 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/linux-fundamentals/</guid>
+      <description>&lt;h3 id=&#34;-linux-fundamentals-part-1&#34;&gt;🐧 Linux Fundamentals Part 1&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;A Bit of Background on Linux&lt;/li&gt;
+&lt;li&gt;Interacting With Your First Linux Machine (In-Browser)&lt;/li&gt;
+&lt;li&gt;Running Your First few Commands&lt;/li&gt;
+&lt;li&gt;Interacting With the File-system!&lt;/li&gt;
+&lt;li&gt;Searching for Files&lt;/li&gt;
+&lt;li&gt;An Introduction to Shell Operators&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;-linux-fundamentals-part-2&#34;&gt;🐧 Linux Fundamentals Part 2&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;Accessing Your Linux Machine Using SSH (Deploy)&lt;/li&gt;
+&lt;li&gt;Introduction to Flags and Switches&lt;/li&gt;
+&lt;li&gt;File-system Interaction Continued&lt;/li&gt;
+&lt;li&gt;Permissions 101&lt;/li&gt;
+&lt;li&gt;Common Directories&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;-linux-fundamentals-part-3&#34;&gt;🐧 Linux Fundamentals Part 3&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Deploy Your Linux Machine&lt;/li&gt;
+&lt;li&gt;Terminal Text Editors&lt;/li&gt;
+&lt;li&gt;General/Useful Utilities&lt;/li&gt;
+&lt;li&gt;Processes 101&lt;/li&gt;
+&lt;li&gt;Maintaining Your System: Automation&lt;/li&gt;
+&lt;li&gt;Maintaining Your System: Package Management&lt;/li&gt;
+&lt;li&gt;Maintaining Your System: Logs&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 Notes&lt;/h2&gt;
+&lt;h3 id=&#34;-linux-fundamentals-part-1-1&#34;&gt;🐧 Linux Fundamentals Part 1&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Accessing Your Linux Machine Using SSH (Deploy)
+&lt;ul&gt;
+&lt;li&gt;ssh tryhackme@MACHINE_IP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Introduction to Flags and Switches
+&lt;ul&gt;
+&lt;li&gt;ls -a, ls &amp;ndash;help, man, -h (human-readable)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;File-system Interaction Continued
+&lt;ul&gt;
+&lt;li&gt;touch, mkdir, cp, mv, rm, file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Permissions 101
+&lt;ul&gt;
+&lt;li&gt;ls -lh, read, write, execute, su,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Common Directories
+&lt;ul&gt;
+&lt;li&gt;/etc, /var, /root, /tmp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Conclusions and Summaries&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-linux-fundamentals-part-2-1&#34;&gt;🐧 Linux Fundamentals Part 2&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;Accessing Your Linux Machine Using SSH (Deploy)&lt;/li&gt;
+&lt;li&gt;practice exercises&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-linux-fundamentals-part-3-1&#34;&gt;🐧 Linux Fundamentals Part 3&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Deploy Your Linux Machine&lt;/li&gt;
+&lt;li&gt;Terminal Text Editors
+&lt;ul&gt;
+&lt;li&gt;nano, vim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;General/Useful Utilities
+&lt;ul&gt;
+&lt;li&gt;wget, cp, scp,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Processes 101
+&lt;ul&gt;
+&lt;li&gt;ps, ps aux, kill, SIGTERM, SIGKILL, SIGSTOP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Maintaining Your System: Automation
+&lt;ul&gt;
+&lt;li&gt;crontab require 6 specific values (MIN, HOUR, DOM, MON, DOW, CMD)
+&lt;code&gt;0 *12 * * * cp -R /home/cmnatic/Documents /var/backups/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Maintaining Your System: Package Management
+&lt;ul&gt;
+&lt;li&gt;Repositories (Adding and Removing)&lt;/li&gt;
+&lt;li&gt;apt, dpkg,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Maintaining Your System: Logs
+&lt;ul&gt;
+&lt;li&gt;/var/log, access log, error log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Conclusions &amp;amp; Summaries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;a-little-extra-info&#34;&gt;A little extra info&lt;/h2&gt;
+&lt;p&gt;This is just an important additional note, it wasn&amp;rsquo;t included in the curriculum. The next command is very rarely needed, but it may be needed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to Cyber Security</title>
+      <link>http://localhost:1313/tryhackme/introduction-to-cyber-security/</link>
+      <pubDate>Sun, 15 Jun 2025 07:16:05 +0100</pubDate>
+      <guid>http://localhost:1313/tryhackme/introduction-to-cyber-security/</guid>
+      <description>&lt;h3 id=&#34;introduction-to-cyber-security&#34;&gt;Introduction To Cyber Security&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Offensive Security Intro&lt;/li&gt;
+&lt;li&gt;Defensive Security Intro&lt;/li&gt;
+&lt;li&gt;Careers in Cyber&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-notes&#34;&gt;📝 &lt;strong&gt;Notes&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;offensive-security-intro&#34;&gt;Offensive Security Intro&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Preventing and detecting  intrusions (Blue Team)
+&lt;ul&gt;
+&lt;li&gt;Documenting and managing assets&lt;/li&gt;
+&lt;li&gt;User cyber security awareness&lt;/li&gt;
+&lt;li&gt;Updating and patching systems&lt;/li&gt;
+&lt;li&gt;Setting up preventative security devices&lt;/li&gt;
+&lt;li&gt;Setting up logging and monitoring devices&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;defensive-security-intro&#34;&gt;Defensive Security Intro&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Security Operations Center (SOC)
+&lt;ul&gt;
+&lt;li&gt;Network intrusions&lt;/li&gt;
+&lt;li&gt;Policy violations&lt;/li&gt;
+&lt;li&gt;Unauthorized activity&lt;/li&gt;
+&lt;li&gt;Vulnerabilities&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Threat Intelligence
+&lt;ul&gt;
+&lt;li&gt;Gathering information about potential adversaries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Digital Forensics and Incident Response (DFIR)
+&lt;ul&gt;
+&lt;li&gt;Digital Forensics (file system analyzing, system memory, system logs, network logs)&lt;/li&gt;
+&lt;li&gt;Incident Response (preparation, detection analysis, containment, eradication and recovery)&lt;/li&gt;
+&lt;li&gt;Post-Incident activity&lt;/li&gt;
+&lt;li&gt;Malware Analysis (viruses, trojan horses and ransomware,static and dynamic analysis)&lt;/li&gt;
+&lt;li&gt;Simulating a SIEM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;careers-in-cyber&#34;&gt;Careers in Cyber&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Security Analyst&lt;/li&gt;
+&lt;li&gt;Security Engineer&lt;/li&gt;
+&lt;li&gt;Incident Responder&lt;/li&gt;
+&lt;li&gt;Digital Forensics Examiner&lt;/li&gt;
+&lt;li&gt;Malware Analyst&lt;/li&gt;
+&lt;li&gt;Penetration Tester&lt;/li&gt;
+&lt;li&gt;Red Teamer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;🐧 &lt;strong&gt;Conclusions&lt;/strong&gt;&lt;br&gt;
+These introductory rooms were highly valuable, even with my prior IT background. They offered a clear and practical overview of both offensive and defensive security concepts, helping me better understand the mindset of ethical hackers and the critical functions of Blue Team roles. Exploring SOC operations, DFIR, and threat intelligence deepened my appreciation for how complex and structured defensive strategies are in real-world environments. This content helped me connect my existing knowledge with key cybersecurity principles and career directions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

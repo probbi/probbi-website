@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on probbi</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on probbi</description>
+    <generator>Hugo -- 0.155.1</generator>
+    <language>hu</language>
+    <lastBuildDate>Tue, 10 Feb 2026 18:03:26 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IP kalkulator létrehozása</title>
+      <link>http://localhost:1313/posts/ip-kalkulator-letrehozasa/</link>
+      <pubDate>Tue, 10 Feb 2026 18:03:26 +0100</pubDate>
+      <guid>http://localhost:1313/posts/ip-kalkulator-letrehozasa/</guid>
+      <description>Szerettem volna egy böngészőben futtatható IP kalkulátort összehozni Python alapokon, mutatom mire jutottam.</description>
+    </item>
+    <item>
+      <title>Migrálás Hugora</title>
+      <link>http://localhost:1313/posts/migralas-hugora/</link>
+      <pubDate>Tue, 20 Jan 2026 10:42:27 +0100</pubDate>
+      <guid>http://localhost:1313/posts/migralas-hugora/</guid>
+      <description>Egy statikus HTML weboldal migrálása és átalakítása Markdown alapú Hugo projektté.</description>
+    </item>
+    <item>
+      <title>Magyarországi CO₂‑kibocsátás elemzése KSH-adatok alapján</title>
+      <link>http://localhost:1313/posts/magyarorszagi-co2kibocsatas-elemz%C3%A9se-ksh-adatok-alapjan/</link>
+      <pubDate>Tue, 25 Nov 2025 15:00:49 +0100</pubDate>
+      <guid>http://localhost:1313/posts/magyarorszagi-co2kibocsatas-elemz%C3%A9se-ksh-adatok-alapjan/</guid>
+      <description>Ez a projekt egy KSH Adatelemzési feladat keretében készült a magyarországi CO₂ kibocsátásra koncentrálva.</description>
+    </item>
+    <item>
+      <title>A SOC 1 projekt felfüggesztve</title>
+      <link>http://localhost:1313/posts/a-soc-1-projekt-felfuggesztve/</link>
+      <pubDate>Wed, 05 Nov 2025 19:03:38 +0100</pubDate>
+      <guid>http://localhost:1313/posts/a-soc-1-projekt-felfuggesztve/</guid>
+      <description>&lt;p&gt;Itt volt az ideje megpróbálni junior pozíciót keresni. A fekete leves azonban hamarabb megérkezett, mint hogy leültem volna az asztalhoz.&lt;/p&gt;
+&lt;p&gt;A környékünkön gyakorlatilag nincs junior SOC 1 álláshirdetés. Ha elvétve akad is, akkor olyan szintű tudást és tanúsítványokat kérnek, ami már-már hardcore red team szint. Budapesten ugyan látok hirdetéseket, de a felköltözés nem opció. Ha találtam releváns álláshirdetést arra küldtem önéletrajzot de hetek után sincs válasz.&lt;/p&gt;
+&lt;p&gt;Redditen kutakodva arra a következtetésre jutottam, hogy a helyzet nem túl rózsás, és nehéz. Az AI tömeges megjelenése sem segít a juniorokon: a cégek behúzták a kéziféket, sokak szerint kivárás van.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Régi laptop megmentése</title>
+      <link>http://localhost:1313/posts/regi-laptop-megmentese/</link>
+      <pubDate>Thu, 02 Oct 2025 10:11:47 +0100</pubDate>
+      <guid>http://localhost:1313/posts/regi-laptop-megmentese/</guid>
+      <description>Ha a régi laptopod nem indul el, ne egyből a szemétbe dobd, mindig van remény a megmentésére!</description>
+    </item>
+    <item>
+      <title>Pcap Analyzer Lite</title>
+      <link>http://localhost:1313/posts/pcap-analyzer-lite/</link>
+      <pubDate>Thu, 15 May 2025 10:12:55 +0100</pubDate>
+      <guid>http://localhost:1313/posts/pcap-analyzer-lite/</guid>
+      <description>A cél egy egyszerű hálózatelemző Python szkript létrehozása volt.</description>
+    </item>
+    <item>
+      <title>SOC 1 Tanulmányaim</title>
+      <link>http://localhost:1313/posts/soc-1-tanulmanyaim/</link>
+      <pubDate>Tue, 15 Apr 2025 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/soc-1-tanulmanyaim/</guid>
+      <description>Ez az oldal rólam, a SOC 1 analyst tanulmányaimról és a közben szerzett tapasztalataimról szól.</description>
+    </item>
+  </channel>
+</rss>
