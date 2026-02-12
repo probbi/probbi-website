@@ -1,6 +1,7 @@
 +++
 date = '2025-11-25T15:00:49+01:00'
 draft = false
+language = "hu"
 title = 'Magyarországi CO₂‑kibocsátás elemzése KSH-adatok alapján'
 summary = 'Ez a projekt egy KSH Adatelemzési feladat keretében készült a magyarországi CO₂ kibocsátásra koncentrálva.'
 +++

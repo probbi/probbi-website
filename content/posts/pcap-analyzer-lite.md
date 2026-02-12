@@ -1,6 +1,7 @@
 +++
 date = '2025-05-15T10:12:55+01:00'
 draft = false
+language = "hu"
 title = 'Pcap Analyzer Lite'
 summary = 'A cél egy egyszerű hálózatelemző Python szkript létrehozása volt.'
 +++

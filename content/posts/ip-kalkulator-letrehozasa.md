@@ -2,6 +2,7 @@
 date = '2026-02-10T18:03:26+01:00'
 draft = false
 title = 'IP kalkulator létrehozása'
+language = "hu"
 summary = 'Szerettem volna egy böngészőben futtatható IP kalkulátort összehozni Python alapokon, mutatom mire jutottam.'
 tags = ['python', 'halozat', 'fejlesztes', 'hugo']
 +++

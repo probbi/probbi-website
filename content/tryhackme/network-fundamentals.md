@@ -2,6 +2,7 @@
 date = '2025-06-15T08:33:13+01:00'
 draft = false
 title = 'Network Fundamentals'
+language = "en"
 +++
 
 ### Network Fundamentals

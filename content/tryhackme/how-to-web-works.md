@@ -2,6 +2,7 @@
 date = '2025-06-15T22:49:00+01:00'
 draft = false
 title = 'How to Web Works'
+language = "en"
 +++
 ### How To Web Works?
 1. DNS in Detail

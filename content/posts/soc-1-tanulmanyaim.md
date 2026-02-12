@@ -1,6 +1,7 @@
 +++
 date = '2025-04-15T10:00:00+01:00'
 draft = false
+language = "hu"
 title = 'SOC 1 Tanulmányaim'
 summary = 'Ez az oldal rólam, a SOC 1 analyst tanulmányaimról és a közben szerzett tapasztalataimról szól.'
 +++

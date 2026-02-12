@@ -2,6 +2,7 @@
 date = '2025-06-15T07:16:05+01:00'
 draft = false
 title = 'Introduction to Cyber Security'
+language = "en"
 +++
 ### Introduction To Cyber Security
 1. Offensive Security Intro

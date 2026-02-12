@@ -2,6 +2,7 @@
 date = '2025-06-15T22:07:03+01:00'
 draft = false
 title = '02 Windows and AD Fundamentals'
+language = "en"
 +++
 # Windows and AD Fundamentals
 

@@ -2,6 +2,7 @@
 date = '2025-06-15T20:07:45+01:00'
 draft = false
 title = 'TryHackMe SOC1 Lab Notes'
+language = "en"
 +++
 
 This notes contains my personal notes and summaries from the [TryHackMe](https://tryhackme.com) platform, focusing on the **SOC Level 1** path and Blue Team topics and SIEM basics.

@@ -2,6 +2,7 @@
 date = '2025-06-15T10:06:17+01:00'
 draft = false
 title = 'Windows Fundamentals'
+language = "en"
 +++
 
 ## 📝 Notes

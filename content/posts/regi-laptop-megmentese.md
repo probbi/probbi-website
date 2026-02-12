@@ -1,6 +1,7 @@
 +++
 date = '2025-10-02T10:11:47+01:00'
 draft = false
+language = "hu"
 title = 'Régi laptop megmentése'
 summary = 'Ha a régi laptopod nem indul el, ne egyből a szemétbe dobd, mindig van remény a megmentésére!'
 tags = ['notebook', 'regi-laptop', 'lassu-notebook', 'javitas']

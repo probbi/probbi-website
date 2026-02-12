@@ -1,6 +1,7 @@
 +++
 date = '2026-01-20T10:42:27+01:00'
 draft = false
+language = "hu"
 title = 'Migrálás Hugora'
 summary = 'Egy statikus HTML weboldal migrálása és átalakítása Markdown alapú Hugo projektté.'
 tags = ['hugo', 'papermod', 'migralas', 'cloudflare-pages', 'git']

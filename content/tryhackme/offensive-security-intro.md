@@ -2,6 +2,7 @@
 date = '2025-06-15T21:07:34+01:00'
 draft = false
 title = 'Offensive Security Intro'
+language = "en"
 +++
 # Start Your Cyber Security Journey
 ## Offensive Security Intro

@@ -2,6 +2,7 @@
 date = '2025-06-15T07:23:04+01:00'
 draft = false
 title = 'Linux Fundamentals'
+language = "en"
 +++
 
 ### 🐧 Linux Fundamentals Part 1

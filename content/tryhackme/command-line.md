@@ -2,6 +2,7 @@
 date = '2025-06-15T22:14:02+01:00'
 draft = false
 title = 'Command Line'
+language = "en"
 +++
 
 ### Windows Command Line

@@ -1,7 +1,8 @@
 +++
 date = '2025-11-05T19:03:38+01:00'
-draft = true
+draft = false
 title = 'A SOC 1 projekt felfüggesztve'
+language = "hu"
 +++
 
 Itt volt az ideje megpróbálni junior pozíciót keresni. A fekete leves azonban hamarabb megérkezett, mint hogy leültem volna az asztalhoz.
