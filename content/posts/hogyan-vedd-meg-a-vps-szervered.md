@@ -1,6 +1,6 @@
 +++
 date = '2026-02-25T10:46:51+01:00'
-draft = true
+draft = false
 language = "hu"
 title = 'Hogyan védd meg a VPS szervered'
 summary = 'Hogyan védd meg a VPS-ed a botnetek rajzásától? SSH biztonság, UFW és Fail2Ban beállítások utáni eredmények valós adatok és logok alapján.'
