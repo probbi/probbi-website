@@ -93,7 +93,8 @@ This is my curated list of tools, ranging from OSINT to malware analysis and net
 * [FTP Error Codes](https://hstechdocs.helpsystems.com/manuals/globalscape/cuteftpmacpro3/Numbered_FTP_status_and_error_codes.htm?ref=securitynguyen.com)
 
 ## 🐧 OS & Virtualization
-* [Distros]: [Arch](https://archlinux.org) | [Ubuntu](https://ubuntu.com/) | [Linux Mint](https://www.linuxmint.com/) | [Kali Linux](https://www.kali.org/) | [CentOS](https://www.linuxmint.com/) | [Parrot Security](https://www.parrotsec.org/)
+* [Linux Distros]: [Arch](https://archlinux.org) | [Ubuntu](https://ubuntu.com/) | [Linux Mint](https://www.linuxmint.com/) | | [CentOS](https://www.linuxmint.com/) | 
+* [Penetration Testing Distributions]: [Kali Linux](https://www.kali.org/) | [Parrot Security](https://www.parrotsec.org/)
 * [Shells]: [Zsh Shell](https://www.zsh.org/) | [Fish Shell](https://fishshell.com/)
 * [VirtualBox](https://www.virtualbox.org/)
 * [VMware (Broadcom)](https://profile.broadcom.com/web/registration)

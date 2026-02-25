@@ -19,5 +19,14 @@ theme = 'PaperMod'
         url = "/tryhackme/security-tools/"
         weight = 30
 
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "monokai"
+
 [params]
-mainSections = [""]
+    mainSections = ["posts"]    # Itt üres volt, írd be a "posts"-t, hogy lásd a cikkeket!
+    ShowCodeCopyButtons = true
+    author = "probbi"           # Emlékszel, az RSS hiba miatt ez is kellhet
