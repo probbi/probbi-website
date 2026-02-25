@@ -26,7 +26,7 @@ innen:
 https://www.ksh.hu/stadat_files/kor/hu/kor0017.html
 
 ## main.py
-```
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
