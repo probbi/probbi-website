@@ -13,7 +13,9 @@ Ha nem akarod, hogy a szervered egy botnet része legyen, kövesd ezeket az alap
 
 A jelszavas belépés az első gyenge láncszem. Hozz létre egy **4096 bites RSA** vagy egy modern **Ed25519** kulcspárt a saját gépeden
 
-`ssh-keygen -t ed25519 -C "vps_kulcs`
+```bash
+ssh-keygen -t ed25519 -C "vps_kulcsod"
+```
 
 **Másold fel a publikus kulcsot a szerverre:**
 
@@ -30,11 +32,11 @@ sudo nano /etc/ssh/sshd_config.
 
 **Itt három kritikus módosítást kell elvégezned:**
 
-Port megváltoztatása: A botok 99%-a a 22-es portot támadja. Válts például a 2222-re vagy ami és számodra könnyű megjegyezni (ha bármilyen okból törlődne a bash history, gondban leszel ha nem jut eszedbe a portszám).
+Port megváltoztatása: A botok 99%-a a 22-es portot támadja. Válts például a 2222-re, de nem felejtsd el feljegyezni valahova, mert ha bármilyen okból törlődne a bash history, gondban leszel ha nem jut eszedbe a portszám.
 
 `Port 2222`
 
-Jelszavas belépés tiltása: csak a kulcsoddal lehessen belépni.
+A jelszavas belépés tiltása, hogy csak a kulcsoddal lehessen belépni:
 
 `PasswordAuthentication no`
 
@@ -42,13 +44,13 @@ Root belépés tiltása:
 
 `PermitRootLogin no`
 
-**Ha ezekkel megvagy, jöhet a SSH-szolgáltatás újraindítása:**
+**Ha ezekkel megvagy, jöhet az SSH-szolgáltatás újraindítása:**
 
 ```bash 
 sudo systemctl restart ssh
 ```
 
-**Végül főpróba és belépés a példa port szerint:**
+**Ha minden jól ment akkor be is léphetsz a szerveredre:**
 
 ```bash 
 ssh -p 2222 root@szerver-ip
