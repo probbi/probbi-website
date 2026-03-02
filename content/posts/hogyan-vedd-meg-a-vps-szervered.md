@@ -5,6 +5,7 @@ language = "hu"
 title = 'Hogyan védd meg a VPS szervered'
 summary = 'Hogyan védd meg a VPS-ed a botnetek rajzásától? SSH biztonság, UFW és Fail2Ban beállítások utáni eredmények valós adatok és logok alapján.'
 +++
+
 > *Mottó: A szerző nem professzionális hálózatguru, csak egy lelkes amatőr. Az itt leírtakat mindenki saját felelősségére alkalmazza!*
 
 Amikor először nézel bele az /var/log/auth.log fájlba, hirtelen úgy érzed magad, mint a Nabukodonozor legénysége: az őrszemek ezrei kaparásszák a falaidat. A botok megállás nélkül próbálnak betörni a 22-es porton, pontosan úgy, ahogy a Mátrixban az őrszemek rajzottak Zion ostrománál. Ha nem akarsz áldozatul esni, ki kell építened a saját védelmi rendszeredet.
@@ -25,13 +26,12 @@ ssh-keygen -t ed25519 -C "vps_kulcsod"
 ssh-copy-id -i ~/.ssh/id_ed25519.pub felhasznalonev@szerver_ip
 ```
 
-
 ## 2. Tűzfal (UFW) beállítása – Ki ne zárd magad!
 
 Mielőtt újraindítod az SSH-t, engedélyezd az új portot a tűzfalon, különben végleg kint maradsz:
 
 ```ini
-sudo ufw allow 2222/tcp # Válassz egy egyedi portot (lehetőleg 1024 és 49151 között, ami még nem foglalt).
+sudo ufw allow 21349/tcp # Válassz egy egyedi portot (lehetőleg 1024 és 49151 között, ami még nem foglalt).
 sudo ufw allow http
 sudo ufw allow https
 sudo ufw enable
@@ -40,15 +40,16 @@ sudo ufw enable
 ## 3. SSH konfiguráció – A biztonság alapja
 
 Szerkeszd az SSH konfigot: 
-```bash 
+
+```bash
 sudo nano /etc/ssh/sshd_config.
 ```
 
 **Itt három kritikus módosítást kell elvégezned:**
 
-Port megváltoztatása: A botok 99%-a a 22-es portot támadja. Válts például a 2222-re, de nem felejtsd el feljegyezni valahova, mert ha bármilyen okból törlődne a bash history, gondban leszel ha nem jut eszedbe a portszám.
+Port megváltoztatása: A botok 99%-a a 22-es portot támadja. Válts például a 21349-re, de nem felejtsd el feljegyezni valahova, mert ha bármilyen okból törlődne a bash history, gondban leszel ha nem jut eszedbe a portszám.
 
-`Port 2222`
+`Port 21349`
 
 A jelszavas belépés tiltása, hogy csak a kulcsoddal lehessen belépni:
 
@@ -60,17 +61,19 @@ Root belépés tiltása:
 
 **Ha ezekkel megvagy, jöhet az SSH-szolgáltatás újraindítása:**
 
-```bash 
+```bash
 sudo systemctl restart ssh
 ```
 
 **Ha minden jól ment akkor be is léphetsz a szerveredre:**
 
-```bash 
-ssh -p 2222 root@szerver-ip
+```bash
+ssh -p 21349 root@szerver-ip
 ```
 
 **💡 Pro Tipp:** Mielőtt újraindítod az SSH-szolgáltatást vagy kilépsz, tarts nyitva egy élő munkamenetet! Ha elrontottál valamit a konfigurációban, ezen keresztül még javíthatod; ha bezárod, marad a nehézkes VNC-konzol. (pl: nem lesz magyar billentyűzetkiosztás).
+
+🔗 Egy kis segítség szabad port kereséshez: [TCP és UDP portszámok listája – Wikipédia](https://hu.wikipedia.org/wiki/TCP_%C3%A9s_UDP_portsz%C3%A1mok_list%C3%A1ja)
 
 ## 4. Fail2Ban – A kapuőr
 
@@ -88,7 +91,7 @@ Ini, TOML
 ```ini
 [sshd]
 enabled = true
-port = 2222
+port = 21349
 filter = sshd[mode=aggressive]
 backend = systemd
 maxretry = 3
@@ -152,7 +155,7 @@ Amint átírtam a konfigurációt és nyomtam egy restartot, a kép megváltozot
 ```ini
 [sshd]
 enabled = true
-port = 2222 #Természetesen a portszámot a saját választottadra cseréld.
+port = 21349 #Természetesen a portszámot a saját választottadra cseréld.
 filter = sshd[mode=aggressive]
 backend = systemd
 ```
@@ -169,7 +172,7 @@ Status for the jail: sshd
    |- Total banned:     4
    `- Banned IP list:   172.xxx.xxx.xxx 172.xxx.xxx.xxx 172.xxx.xxx.xxx 173.xxx.xxx.xxx
 ```
-   
+
 Azt az IP-t ahonnan egy bot folyamatosan bombázta a szerveremet véglegesen kibannoltam, biztos ami biztos alapon:
 
 UFW
@@ -186,7 +189,6 @@ sudo iptables -L INPUT -n -v | grep 173.xxx.xxx.xxx
 - 15509 ennyi próbálkozás
 - 927K forgalom megérkeztek
 - DROP ez a státusz igazolja hogy a szerver egyáltalán nem válaszolt neki
-
 
 ```bash
 tail -f /var/log/fail2ban.log
