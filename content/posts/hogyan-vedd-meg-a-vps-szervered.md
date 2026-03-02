@@ -86,7 +86,7 @@ Ini, TOML
 ```ini
 [sshd]
 enabled = true
-port = 2222
+port = 2222 #Természetesen a portszámot a saját választottadra cseréld.
 filter = sshd[mode=aggressive]
 backend = systemd
 maxretry = 3
@@ -139,7 +139,7 @@ Sokan azt hiszik, ha egy neves szolgáltatónál van a gépük, a belső hálóz
 
 ## ❗ Update
 
-Megnyugodtam, hátradőlve hagytam, hogy a Fail2Ban tegye a dolgát. Egy héttel később ránézek, hogy hogyan dolgozik, hát sehogy. A sudo fail2ban-client status sshd parancs után a Total Banned: 1 db IP, ami túl szép volt, hogy igaz legyen.
+Megnyugodtam, hátradőlve hagytam, hogy a Fail2Ban tegye a dolgát. Egy héttel később ránézek, hogy hogyan dolgozik, hát sehogy. A `sudo fail2ban-client status sshd` parancs után a Total Banned: 1 db IP, ami túl szép volt, hogy igaz legyen.
 
 Kiderült, hogy régen minden Linuxon az rsyslog uralkodott, ami egyszerű szöveges fájlokba (/var/log/auth.log) írta az eseményeket. A Fail2Ban alapértelmezés szerint még mindig ezt keresi, mert ez a "legkisebb közös többszörös" minden Unix-szerű rendszeren. A modern Linux rendszerek (Debian 12, Ubuntu 22.04+, Fedora...) viszont már a systemd-journald-t használják, ami nem szövegfájl, hanem egy bináris adatbázis.
 
@@ -190,6 +190,7 @@ sudo iptables -L INPUT -n -v | grep 173.xxx.xxx.xxx
 tail -f /var/log/fail2ban.log
 ```
 
+```
 2026-xx-xx xx:xx:xx,xxx fail2ban.filter         [3090861]: INFO      findtime: 86400
 2026-xx-xx xx:xx:xx,xxx fail2ban.actions        [3090861]: INFO      banTime: 86400
 2026-xx-xx xx:xx:xx,xxx fail2ban.filter         [3090861]: INFO      encoding: UTF-8
@@ -200,7 +201,7 @@ tail -f /var/log/fail2ban.log
 2026-xx-xx xx:xx:xx,xxx fail2ban.actions        [3090861]: NOTICE  [sshd] Restore Ban 172.xxx.xxx.xxx
 2026-xx-xx xx:xx:xx,xxx fail2ban.actions        [3090861]: NOTICE  [sshd] Restore Ban 173.xxx.xxx.xxx
 2026-xx-xx xx:xx:xx,xxx fail2ban.actions        [3090861]: NOTICE  [sshd] Unban 172.xxx.xxx.xxx
-
+```
 
 ### Összegzés és tapasztalatok
 
