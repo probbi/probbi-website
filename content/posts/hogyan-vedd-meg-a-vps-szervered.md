@@ -166,7 +166,7 @@ grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -
 
 Sokan azt hiszik, ha egy neves szolgáltatónál van a gépük, a belső hálózat védett. De a logokból hamar kiderült: a támadó ugyanannál a szolgáltatónál bérelt gépet, ahol én (pl: `tracepath IP` és meg is lesz támadó szerver szolgáltatója). 
 
-## ❗ Update
+## ❗ Update -avagy ne higgy a szemednek!
 
 Megnyugodtam, hátradőlve hagytam, hogy a Fail2Ban tegye a dolgát. Egy héttel később ránézek, hogy hogyan dolgozik, hát sehogy. A `sudo fail2ban-client status sshd` parancs után a Total Banned: 1 db IP, ami túl szép volt, hogy igaz legyen.
 
