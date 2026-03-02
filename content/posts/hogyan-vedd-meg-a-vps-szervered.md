@@ -5,6 +5,8 @@ language = "hu"
 title = 'Hogyan védd meg a VPS szervered'
 summary = 'Hogyan védd meg a VPS-ed a botnetek rajzásától? SSH biztonság, UFW és Fail2Ban beállítások utáni eredmények valós adatok és logok alapján.'
 +++
+> *Mottó: A szerző nem professzionális hálózatguru, csak egy lelkes amatőr. Az itt leírtakat mindenki saját felelősségére alkalmazza!*
+
 Amikor először nézel bele az /var/log/auth.log fájlba, hirtelen úgy érzed magad, mint a Nabukodonozor legénysége: az őrszemek ezrei kaparásszák a falaidat. A botok megállás nélkül próbálnak betörni a 22-es porton, pontosan úgy, ahogy a Mátrixban az őrszemek rajzottak Zion ostrománál. Ha nem akarsz áldozatul esni, ki kell építened a saját védelmi rendszeredet.
 
 Ha nem akarod, hogy a szervered egy botnet része legyen, kövesd ezeket az alapvető lépéseket.
