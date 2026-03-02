@@ -31,7 +31,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub felhasznalonev@szerver_ip
 Mielőtt újraindítod az SSH-t, engedélyezd az új portot a tűzfalon, különben végleg kint maradsz:
 
 ```ini
-sudo ufw allow 2222/tcp #Bármilyen random port.
+sudo ufw allow 2222/tcp # Válassz egy egyedi portot (lehetőleg 1024 és 49151 között, ami még nem foglalt).
 sudo ufw allow http
 sudo ufw allow https
 sudo ufw enable
@@ -88,7 +88,7 @@ Ini, TOML
 ```ini
 [sshd]
 enabled = true
-port = 2222 #Természetesen a portszámot a saját választottadra cseréld.
+port = 2222
 filter = sshd[mode=aggressive]
 backend = systemd
 maxretry = 3
