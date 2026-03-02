@@ -26,7 +26,27 @@ ssh-keygen -t ed25519 -C "vps_kulcsod"
 ssh-copy-id -i ~/.ssh/id_ed25519.pub felhasznalonev@szerver_ip
 ```
 
-## 2. Tűzfal (UFW) beállítása – Ki ne zárd magad!
+## 2. Saját felhasználó létrehozása - Ne légy mindig mindenható!
+
+Legyen egy user fiókod és csak akkor légy root ha nagyon muszáj.
+
+```bash
+sudo adduser neved  # Adj neki egy erős jelszót!
+sudo usermod -aG sudo neved
+```
+
+Másold át a kulcsodat az új usernek:
+Mivel a későbbi lépésekben letiltjuk a jelszavas belépést, az új felhasználódnak is szüksége van a publikus kulcsodra:
+
+```bash
+sudo mkdir -p /home/neved/.ssh
+sudo cp /root/.ssh/authorized_keys /home/neved/.ssh/
+sudo chown -R neved:neved /home/neved/.ssh
+sudo chmod 700 /home/neved/.ssh
+sudo chmod 600 /home/neved/.ssh/authorized_keys
+```
+
+## 3. Tűzfal (UFW) beállítása – Ki ne zárd magad!
 
 Mielőtt újraindítod az SSH-t, engedélyezd az új portot a tűzfalon, különben végleg kint maradsz:
 
@@ -37,7 +57,7 @@ sudo ufw allow https
 sudo ufw enable
 ```
 
-## 3. SSH konfiguráció – A biztonság alapja
+## 4. SSH konfiguráció – A biztonság alapja
 
 Szerkeszd az SSH konfigot: 
 
@@ -59,6 +79,10 @@ Root belépés tiltása:
 
 `PermitRootLogin no`
 
+Vigyázz! Innentől már csak a létrehozott felhasználóddal tudsz belépni!
+
+pl: ssh -p 21349 neved@szerver-ip
+
 **Ha ezekkel megvagy, jöhet az SSH-szolgáltatás újraindítása:**
 
 ```bash
@@ -75,7 +99,7 @@ ssh -p 21349 root@szerver-ip
 
 🔗 Egy kis segítség szabad port kereséshez: [TCP és UDP portszámok listája – Wikipédia](https://hu.wikipedia.org/wiki/TCP_%C3%A9s_UDP_portsz%C3%A1mok_list%C3%A1ja)
 
-## 4. Fail2Ban – A kapuőr
+## 5. Fail2Ban – A kapuőr
 
 A Fail2Ban figyeli a naplófájlokat, és ha valaki túl sokszor hibázik, kitiltja az IP-címét.
 
