@@ -31,7 +31,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub felhasznalonev@szerver_ip
 Mielőtt újraindítod az SSH-t, engedélyezd az új portot a tűzfalon, különben végleg kint maradsz:
 
 ```ini
-sudo ufw allow 2222/tcp
+sudo ufw allow 2222/tcp #Bármilyen random port.
 sudo ufw allow http
 sudo ufw allow https
 sudo ufw enable
@@ -145,7 +145,7 @@ Megnyugodtam, hátradőlve hagytam, hogy a Fail2Ban tegye a dolgát. Egy héttel
 
 Kiderült, hogy régen minden Linuxon az rsyslog uralkodott, ami egyszerű szöveges fájlokba (/var/log/auth.log) írta az eseményeket. A Fail2Ban alapértelmezés szerint még mindig ezt keresi, mert ez a "legkisebb közös többszörös" minden Unix-szerű rendszeren. A modern Linux rendszerek (Debian 12, Ubuntu 22.04+, Fedora...) viszont már a systemd-journald-t használják, ami nem szövegfájl, hanem egy bináris adatbázis.
 
-Mivel a /var/log/auth.log dátumformátuma sokszor eltér a Fail2Ban által várt mintától, a szoftver egyszerűen "megvakul" és nem látja a támadásokat. A megoldás a backend = systemd és a mode = aggressive bekapcsolása volt a jail.local fájlban. Ezzel a Fail2Ban már nem egy szöveges fájlt bogarászik, hanem közvetlenül a rendszer belső naplójából (journal) kapja az adatokat.
+Mivel a `/var/log/auth.log` dátumformátuma sokszor eltér a Fail2Ban által várt mintától, a szoftver egyszerűen "megvakul" és nem látja a támadásokat. A megoldás a `backend = systemd` és a `mode = aggressive` bekapcsolása volt a jail.local fájlban. Ezzel a Fail2Ban már nem egy szöveges fájlt bogarászik, hanem közvetlenül a rendszer belső naplójából (journal) kapja az adatokat.
 
 Amint átírtam a konfigurációt és nyomtam egy restartot, a kép megváltozott. A Journal matches sor megjelent, és azonnal  megérkeztek az első kitiltott IP-címek is a listába!
 
