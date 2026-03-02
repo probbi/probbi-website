@@ -209,7 +209,7 @@ tail -f /var/log/fail2ban.log
 
 ### Összegzés és tapasztalatok
 
-A szerver hardening nem atomfizika, de a fegyelmezettség hiánya, lazaság (például egy nyitva hagyott 22-es port vagy a jelszavas hitelesítés) azonnali kockázatot jelent. A logok alapján látható ~ 624 000 betörési kísérlet bizonyítja, hogy az automatizált botok nem válogatnak: minden IP-re lőnek, amit elérnek.
+A nyitva hagyott 22-es port vagy a jelszavas hitelesítés azonnali kockázatot jelent. A logok alapján látható, hogy rövid időn belül ~ 624 000 betörési kísérlet bizonyítja, hogy az automatizált botok nem válogatnak: minden IP-re lőnek, amit elérnek.
 
 **Ami nálam alapvető beállítás egy új VPS indításakor:**
 
