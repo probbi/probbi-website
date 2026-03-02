@@ -92,7 +92,7 @@ sudo systemctl restart ssh
 **Ha minden jól ment akkor be is léphetsz a szerveredre:**
 
 ```bash
-ssh -p 21349 root@szerver-ip
+ssh -p 21349 neved@szerver-ip
 ```
 
 **💡 Pro Tipp:** Mielőtt újraindítod az SSH-szolgáltatást vagy kilépsz, tarts nyitva egy élő munkamenetet! Ha elrontottál valamit a konfigurációban, ezen keresztül még javíthatod; ha bezárod, marad a nehézkes VNC-konzol. (pl: nem lesz magyar billentyűzetkiosztás).
@@ -110,7 +110,6 @@ sudo apt update && sudo apt install fail2ban -y
 ```
 
 Hozz létre egy helyi konfigurációt (`sudo nano /etc/fail2ban/jail.local`), és add hozzá az SSH védelmet:
-Ini, TOML
 
 ```ini
 [sshd]
@@ -135,9 +134,9 @@ sudo systemctl restart fail2ban
 Ellenőrizheted a kitiltott IP-ket:
 
 ```
-root@xxxxxxxxxx:~# uptime
+neved@xxxxxxxxxx:~# uptime
  06:47:29 up 18 days, 20:11,  1 user,  load average: 0.01, 0.00, 0.00
-root@xxxxxxxxxx:~# sudo fail2ban-client status sshd
+neved@xxxxxxxxxx:~# sudo fail2ban-client status sshd
 Status for the jail: sshd
 |- Filter
 |  |- Currently failed: 0
@@ -185,7 +184,7 @@ backend = systemd
 ```
 
 ```
-root@xxxxxxx:~# sudo fail2ban-client status sshd
+neved@xxxxxxx:~# sudo fail2ban-client status sshd
 Status for the jail: sshd
 |- Filter
 |  |- Currently failed: 0
