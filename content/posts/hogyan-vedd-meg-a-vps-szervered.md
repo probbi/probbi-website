@@ -238,6 +238,8 @@ A nyitva hagyott 22-es port vagy a jelszavas hitelesítés azonnali kockázatot 
 
 - **SSH kulcs alapú hitelesítés** (jelszó tiltva).
 
+- **User létrehozása** (hogy csak akkor legyünk benn rootként ha indokolt)
+
 - **Egyedi port** (hogy a botok 99%-a lepattanjon).
 
 - **UFW** (szigorú szabályokkal).
