@@ -1,6 +1,6 @@
 +++
 date = '2025-11-05T19:03:38+01:00'
-draft = false
+draft = true
 title = 'A SOC 1 projekt felfüggesztve'
 language = "hu"
 +++
