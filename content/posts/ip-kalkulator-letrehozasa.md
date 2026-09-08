@@ -37,7 +37,7 @@ Szóval a következő órák azzal teltek, hogy hozzáadtam vagy elvettem funkci
 
 ## További info:
 
-https://ip-kalkulator.probbi.com/
+https://ip-kalkulator.streamlit.app/
 
 https://github.com/probbi/ip-calculator
 
