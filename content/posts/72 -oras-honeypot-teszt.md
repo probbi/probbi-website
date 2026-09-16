@@ -10,7 +10,7 @@ Régóta szerepelt a bakancslistámon egy honypot kipróbálása éles szerveren
 
 ## Mi az a honeypot?
 
-A Cowrie egy SSH csapda: úgy viselkedik, mint egy valódi Linux szerver, elfogadja a bejelentkezési kísérleteket, hamis shell promptot ad, és mindent naplóz - a jelszavaktól kezdve a futtatott parancsokig és a feltöltött fájlokig. A támadó azt hiszi bejutott pedig valójában csak egy sandboxban van izolálva.
+A Cowrie egy SSH csapda: úgy viselkedik, mint egy valódi Linux szerver, elfogadja a bejelentkezési kísérleteket, hamis shell promptot ad, és mindent naplóz - a jelszavaktól kezdve a futtatott parancsokig és a feltöltött fájlokig. A támadó azt hiszi bejutott, pedig valójában csak egy sandboxban van izolálva.
 
 ## Az infrastruktúra
 
