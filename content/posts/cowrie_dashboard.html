@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSH Honeypot — Threat Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg:       #090F1C;
+    --card:     #0D1A2E;
+    --border:   #172845;
+    --amber:    #F5A623;
+    --blue:     #3AABCF;
+    --red:      #E05050;
+    --text:     #C4D8EE;
+    --muted:    #6A8BAE;
+    --mono:     'JetBrains Mono', monospace;
+    --sans:     'Space Grotesk', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a { color: var(--blue); text-decoration: none; }
+
+  /* ── Header ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 2.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .header-left h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .header-left p {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+  .threat-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.35);
+    border-radius: 4px;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+  }
+  .threat-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 8px var(--amber);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Layout ── */
+  main { max-width: 1280px; margin: 0 auto; padding: 2rem 2.5rem 4rem; }
+
+  section { margin-bottom: 3rem; }
+  h2 {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── Stats row ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--card);
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .stat-value.amber { color: var(--amber); }
+  .stat-value.red   { color: var(--red); }
+  .stat-value.blue  { color: var(--blue); }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    line-height: 1.3;
+  }
+
+  /* ── Chart cards ── */
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .chart-card h3 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .chart-full { width: 100%; }
+  .chart-full canvas { height: 220px !important; }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .chart-grid .chart-card canvas { height: 260px !important; }
+
+  /* ── Attack chain ── */
+  .chain {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .chain-step {
+    flex: 1;
+    min-width: 160px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 1.2rem 1rem;
+    position: relative;
+    border-right: none;
+  }
+  .chain-step:first-child { border-radius: 6px 0 0 6px; }
+  .chain-step:last-child  { border-radius: 0 6px 6px 0; border-right: 1px solid var(--border); }
+  .chain-step::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--amber);
+    font-size: 1.2rem;
+    z-index: 2;
+  }
+  .chain-step:last-child::after { display: none; }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+  .step-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .step-detail {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Malware cards ── */
+  .malware-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .malware-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--red);
+  }
+  .malware-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  .malware-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .malware-hash {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--muted);
+    word-break: break-all;
+    line-height: 1.4;
+  }
+  .vt-score {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .vt-score .score-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+  }
+  .vt-score .score-denom {
+    font-size: 0.7rem;
+    color: var(--muted);
+    display: block;
+    text-align: center;
+    margin-top: 0.1rem;
+  }
+  .vt-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .vt-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber), var(--red));
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+  .malware-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    border: 1px solid;
+  }
+  .tag-red    { border-color: rgba(224,80,80,0.4); color: #E88888; background: rgba(224,80,80,0.08); }
+  .tag-amber  { border-color: rgba(245,166,35,0.4); color: #F5C06A; background: rgba(245,166,35,0.08); }
+  .tag-blue   { border-color: rgba(58,171,207,0.4); color: #7AC8E0; background: rgba(58,171,207,0.08); }
+  .malware-summary {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+    padding-top: 0.8rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--blue); }
+
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .chart-grid, .malware-grid { grid-template-columns: 1fr; }
+    .chain { flex-direction: column; }
+    .chain-step { border-right: 1px solid var(--border); border-bottom: none; border-radius: 0; }
+    .chain-step:first-child { border-radius: 6px 6px 0 0; }
+    .chain-step:last-child  { border-radius: 0 0 6px 6px; border-bottom: 1px solid var(--border); }
+    .chain-step::after { content: '↓'; right: auto; left: 50%; transform: translate(-50%, 0); top: auto; bottom: -18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>SSH Honeypot — Threat Intelligence Report</h1>
+    <p>Random VPS szolgáltató · 2026-09-07 → 2026-09-09 · Cowrie 3.0.13 · Debian 12</p>
+  </div>
+  <div class="threat-badge">HIGH THREAT ACTIVITY</div>
+</header>
+
+<main>
+
+  <!-- Stats -->
+  <section>
+    <h2>// összefoglaló — 2 nap 6 óra</h2>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-value amber">55 528</div>
+        <div class="stat-label">rögzített esemény</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">7 305</div>
+        <div class="stat-label">SSH kapcsolat</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value blue">341</div>
+        <div class="stat-label">egyedi forrás IP</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value red">99,4%</div>
+        <div class="stat-label">sikeres belépés</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">6 518</div>
+        <div class="stat-label">futtatott parancs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">68</div>
+        <div class="stat-label">payload letöltés</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <h2>// kapcsolatok időbeli eloszlása — óránként</h2>
+    <div class="chart-card chart-full">
+      <h3>Bejövő SSH kapcsolatok / óra</h3>
+      <canvas id="timeline"></canvas>
+    </div>
+  </section>
+
+  <!-- Bar charts -->
+  <section>
+    <h2>// hitelesítési adatok elemzése</h2>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Top 10 kipróbált jelszó</h3>
+        <canvas id="passwords"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Top 10 kipróbált felhasználónév</h3>
+        <canvas id="usernames"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- IPs + Commands -->
+  <section>
+    <h2>// forrás IP-k és futtatott parancsok</h2>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Top forrás IP-k — a 109.160.32.x blokk egyetlen operátor</h3>
+        <canvas id="ips"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Legtöbbször futtatott parancsok</h3>
+        <canvas id="commands"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attack chain -->
+  <section>
+    <h2>// támadási lánc rekonstrukció</h2>
+    <div class="chain">
+      <div class="chain-step">
+        <div class="step-num">01 · FELDERÍTÉS</div>
+        <div class="step-title">Automatizált port scan</div>
+        <div class="step-detail">TCP/22 megnyitása<br>perceken belül<br>indult a szkennelés</div>
+      </div>
+      <div class="chain-step">
+        <div class="step-num">02 · BELÉPÉS</div>
+        <div class="step-title">Brute-force hitelesítés</div>
+        <div class="step-detail">root / r@@t<br>admin / admin<br>support / support</div>
+      </div>
+      <div class="chain-step">
+        <div class="step-num">03 · OS FINGERPRINT</div>
+        <div class="step-title">Rendszer azonosítás</div>
+        <div class="step-detail">uname -s -v -n -r -m<br>6 080× futtatva<br>MikroTik teszt is</div>
+      </div>
+      <div class="chain-step">
+        <div class="step-num">04 · BACKDOOR</div>
+        <div class="step-title">SSH hátsó kapu</div>
+        <div class="step-detail">mdrfckr kampány<br>authorized_keys<br>32/61 VT detekció</div>
+      </div>
+      <div class="chain-step">
+        <div class="step-num">05 · PERSISTENCE</div>
+        <div class="step-title">Lateral movement kit</div>
+        <div class="step-detail">privát kulcs + SSH config<br>önterjedő SSH worm<br>StrictHostKeyChecking no</div>
+      </div>
+      <div class="chain-step">
+        <div class="step-num">06 · PAYLOAD</div>
+        <div class="step-title">Cryptominer telepítés</div>
+        <div class="step-detail">trójai sshd binary<br>Linux CoinMiner<br>46/63 VT detekció</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Malware -->
+  <section>
+    <h2>// azonosított malware minták — VirusTotal elemzés</h2>
+    <div class="malware-grid">
+
+      <div class="malware-card">
+        <div class="malware-header">
+          <div>
+            <div class="malware-name">SSH Backdoor Key — mdrfckr kampány</div>
+            <div class="malware-hash">a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2</div>
+          </div>
+          <div class="vt-score">
+            <div class="score-num">32</div>
+            <div class="score-denom">/ 61</div>
+          </div>
+        </div>
+        <div class="vt-bar"><div class="vt-fill" style="width:52.5%"></div></div>
+        <div class="malware-tags">
+          <span class="tag tag-red">Trojan.Shell.Malkey</span>
+          <span class="tag tag-amber">authorized_keys</span>
+          <span class="tag tag-red">Backdoor/Text.CryptoBot</span>
+          <span class="tag tag-blue">shell</span>
+          <span class="tag tag-blue">long-sleeps</span>
+        </div>
+        <div class="malware-summary">
+          A honeypot 24 fájlba írta volna az SSH publikus kulcsot — 24 különböző IP-ről küldték ugyanazt a hash-t.
+          Tömeges "spray and pray" botnet kampány: bármely elért szerverbe bejut, és hátsó ajtót nyit a támadónak.
+          Az <code style="font-family:var(--mono);font-size:0.75em;color:var(--amber)">mdrfckr</code> jelzés a kulcs komment mezőjében dokumentált botnet-aláírás.
+        </div>
+      </div>
+
+      <div class="malware-card">
+        <div class="malware-header">
+          <div>
+            <div class="malware-name">Trójai sshd bináris — Linux CoinMiner</div>
+            <div class="malware-hash">94f2e4d8d4436874785cd14e6e6d403507b8750852f7f2040352069a75da4c00</div>
+          </div>
+          <div class="vt-score">
+            <div class="score-num">46</div>
+            <div class="score-denom">/ 63</div>
+          </div>
+        </div>
+        <div class="vt-bar"><div class="vt-fill" style="width:73%"></div></div>
+        <div class="malware-tags">
+          <span class="tag tag-red">miner.multiverze</span>
+          <span class="tag tag-red">Linux/CoinMiner</span>
+          <span class="tag tag-amber">ELF 64bit</span>
+          <span class="tag tag-blue">pua</span>
+          <span class="tag tag-red">Exploit.EXP/ELF.Coinminer</span>
+        </div>
+        <div class="malware-summary">
+          SFTP-vel töltötték fel, <code style="font-family:var(--mono);font-size:0.75em;color:var(--amber)">sshd</code> névvel — szándék: lecserélni a valódi SSH daemonnál.
+          A bináris valójában egy Linux x64 cryptominer (multiverze/genericrxss família), ami a szerver CPU-ját
+          titkosítópénz bányászatra használná, miközben a neve legitimnek látszik a folyamatlistában.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>probbi · <a href="https://probbi.com" target="_blank">probbi.com</a> · Cowrie SSH Honeypot project · 2026</span>
+  <span>Rackforest VPS · Debian 12 · mdrfckr campaign · Linux.CoinMiner</span>
+</footer>
+
+<script>
+const AMBER = '#F5A623';
+const BLUE  = '#3AABCF';
+const RED   = '#E05050';
+const MUTED = '#6A8BAE';
+const GRID  = '#172845';
+const TEXT  = '#C4D8EE';
+
+Chart.defaults.color = MUTED;
+Chart.defaults.borderColor = GRID;
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.font.size = 11;
+
+// ── Timeline ──
+const tlLabels = [
+  '09-07 10:00','09-07 11:00','09-07 12:00','09-07 13:00','09-07 14:00',
+  '09-07 15:00','09-07 16:00','09-07 17:00','09-07 18:00','09-07 19:00',
+  '09-07 20:00','09-07 21:00','09-07 22:00','09-07 23:00',
+  '09-08 00:00','09-08 01:00','09-08 02:00','09-08 03:00','09-08 04:00',
+  '09-08 05:00','09-08 06:00','09-08 07:00','09-08 08:00','09-08 09:00',
+  '09-08 10:00','09-08 11:00','09-08 12:00','09-08 13:00','09-08 14:00',
+  '09-08 15:00','09-08 16:00','09-08 17:00','09-08 18:00','09-08 19:00',
+  '09-08 20:00','09-08 21:00','09-08 22:00','09-08 23:00',
+  '09-09 00:00','09-09 01:00','09-09 02:00','09-09 03:00','09-09 04:00',
+  '09-09 05:00','09-09 06:00','09-09 07:00','09-09 08:00','09-09 09:00',
+  '09-09 10:00','09-09 11:00','09-09 12:00','09-09 13:00','09-09 14:00',
+  '09-09 15:00','09-09 16:00'
+];
+const tlData = [
+  7,19,16,9,7,289,533,13,85,486,38,956,149,39,
+  170,371,17,17,25,27,30,15,19,32,
+  286,569,22,8,102,14,456,362,18,240,316,47,8,514,
+  12,22,29,29,22,38,14,18,52,90,61,33,23,60,452,9,10
+];
+const tlColors = tlData.map(v => v > 400 ? AMBER : (v > 100 ? '#C87E1A' : BLUE + '99'));
+
+new Chart(document.getElementById('timeline'), {
+  type: 'bar',
+  data: {
+    labels: tlLabels,
+    datasets: [{
+      data: tlData,
+      backgroundColor: tlColors,
+      borderWidth: 0,
+      borderRadius: 2,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title: ctx => ctx[0].label,
+          label: ctx => ` ${ctx.parsed.y} kapcsolat`
+        }
+      }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { maxRotation: 45, maxTicksLimit: 18 } },
+      y: { grid: { color: GRID }, beginAtZero: true }
+    }
+  }
+});
+
+// ── Passwords ──
+new Chart(document.getElementById('passwords'), {
+  type: 'bar',
+  data: {
+    labels: ['123456','123','1234','12345678','12345','root','111111','admin','123456789','123123'],
+    datasets: [{
+      data: [408,150,150,112,107,100,95,82,80,74],
+      backgroundColor: RED + 'BB',
+      borderWidth: 0,
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: GRID }, beginAtZero: true },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ── Usernames ──
+new Chart(document.getElementById('usernames'), {
+  type: 'bar',
+  data: {
+    labels: ['root','bhwang','admin','ansible','user','aa','test','ubuntu','aagorban','user1'],
+    datasets: [{
+      data: [1665,228,220,191,128,111,107,98,86,83],
+      backgroundColor: AMBER + 'BB',
+      borderWidth: 0,
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: GRID }, beginAtZero: true },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ── IPs ──
+new Chart(document.getElementById('ips'), {
+  type: 'bar',
+  data: {
+    labels: [
+      '109.160.32.107','109.160.32.24','109.160.32.76','109.160.32.102',
+      '109.160.32.120','109.160.32.108','109.160.32.38','109.160.32.30',
+      '109.160.32.72','177.126.132.44'
+    ],
+    datasets: [{
+      data: [1002,785,785,501,501,501,501,501,491,219],
+      backgroundColor: (ctx) => ctx.dataIndex <= 8 ? AMBER + '99' : BLUE + '99',
+      borderWidth: 0,
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          afterLabel: ctx => ctx.dataIndex <= 8 ? '▲ egyetlen botnet /24 blokk' : ''
+        }
+      }
+    },
+    scales: {
+      x: { grid: { color: GRID }, beginAtZero: true },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+    }
+  }
+});
+
+// ── Commands ──
+new Chart(document.getElementById('commands'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'uname -s -v -n -r -m',
+      'export PATH=...',
+      '/bin/./uname -s -v -n -r -m',
+      'chattr -ia .ssh + lockr',
+      'rm -rf .ssh → authorized_keys',
+      '/ip cloud print (MikroTik)',
+    ],
+    datasets: [{
+      data: [6080, 154, 70, 61, 61, 4],
+      backgroundColor: [
+        BLUE + 'CC', BLUE + '88', BLUE + '66',
+        RED + 'CC', RED + 'CC', AMBER + 'AA'
+      ],
+      borderWidth: 0,
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: GRID }, beginAtZero: true, type: 'logarithmic' },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+    }
+  }
+});
+</script>
+</body>
+</html>
