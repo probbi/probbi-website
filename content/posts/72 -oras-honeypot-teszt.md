@@ -56,7 +56,7 @@ A terv tehát: bejut, hátsó ajtót nyit, lecseréli az SSH daemonnál egy cryp
 
 ## Interaktív dashboard
 
-Az összes adat vizualizálva elérhető itt: [Interaktív dashboard megnyitása →](/static/cowrie_dashboard.html)
+Az összes adat vizualizálva elérhető itt: [Interaktív dashboard megnyitása]→(/cowrie_dashboard.html)
 
 ## Tanulságok
 
