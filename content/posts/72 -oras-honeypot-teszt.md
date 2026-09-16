@@ -56,8 +56,7 @@ A terv tehát: bejut, hátsó ajtót nyit, lecseréli az SSH daemonnál egy cryp
 
 ## Interaktív dashboard
 
-Az összes adat vizualizálva elérhető itt: [Interaktív dashboard megnyitása]→(/cowrie_dashboard.html)
-
+Az összes adat vizualizálva elérhető itt: [Interaktív dashboard megnyitása](/cowrie_dashboard.html)
 ## Tanulságok
 
 Egy nyilvános IP-n lévő 22-es port perceken belül megjelenik a scannerek radarján. Az automatizált támadások könyörtelenek és állandóak - nem személyes célpontok, hanem tömeges, olcsó permetezés. A védekezés nem bonyolult: kulcsalapú SSH-hitelesítés, nem szokványos port, tűzfal - de ezeket tényleg be kell állítani, nem elég tudni róluk.
