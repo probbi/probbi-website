@@ -1,7 +1,7 @@
 +++
-title = "Cowrie honeypot tapasztalatok pár nap tesztelés után"
-date = 2026-09-16
+date = '2026-09-16'
 draft = false
+title = 'Cowrie honeypot tapasztalatok pár nap tesztelés után'
 language = "hu"
 summary = "Cowrie SSH honeypot üzemeltetése éles VPS-en: mit csinál az internet egy nyitott 22-es porttal 72 óra alatt?"
 +++
