@@ -1,9 +1,10 @@
 ---
-title: "Cowrie honeypot tapasztalatok pár nap tesztelés után"
-date: 2026-09-10
-draft: false
-tags: ["cybersecurity", "honeypot", "linux", "sysadmin"]
-description: "Cowrie SSH honeypot üzemeltetése éles VPS-en: mit csinál az internet egy nyitott 22-es porttal 72 óra alatt?"
+title = "Cowrie honeypot tapasztalatok pár nap tesztelés után"
+date = 2026-09-16
+draft = false
+tags = ["cybersecurity", "honeypot", "linux", "sysadmin"]
+language = "hu"
+description = "Cowrie SSH honeypot üzemeltetése éles VPS-en: mit csinál az internet egy nyitott 22-es porttal 72 óra alatt?"
 ---
 
 Régóta szerepelt a bakancslistámon egy honypot kipróbálása éles szerveren. Hétvégén belevágtam és felállítottam egy Cowrie SSH honeypotot egy éles VPS-en, és 72 órán át figyeltem, mi történik. Röviden: az internet nem sokat várt.
@@ -56,7 +57,7 @@ A terv tehát: bejut, hátsó ajtót nyit, lecseréli az SSH daemonnál egy cryp
 
 ## Interaktív dashboard
 
-Az összes adat vizualizálva elérhető itt: [Interaktív dashboard megnyitása →](/cowrie_dashboard.html)
+Az összes adat vizualizálva elérhető itt: [Interaktív dashboard megnyitása →](/static/cowrie_dashboard.html)
 
 ## Tanulságok
 
