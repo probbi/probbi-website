@@ -2,7 +2,7 @@
 date = '2026-04-15T21:00:49+01:00'
 draft = false
 language = "hu"
-title = ''
+title = 'Autókölcsönző Rendszer Pythonban'
 summary = 'Egyetemi projektként készített Python autókölcsönző CLI alkalmazás az objektumorientált programozás (OOP) alapelveinek bemutatására.'
 +++
 
