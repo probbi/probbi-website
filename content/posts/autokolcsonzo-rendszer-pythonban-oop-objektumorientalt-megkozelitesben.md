@@ -12,7 +12,7 @@ A programozási alapok és az **objektumorientált programozás (OOP)** elveinek
 
 ##  A Projekt Célja
 
-A feladat egy olyan Python alapú rendszer megtervezése volt, amely képes kezelti egy autókölcsönző flotta mindennapi műveleteit:
+A feladat egy olyan Python alapú rendszer megtervezése volt, amely képes kezelni egy autókölcsönző flotta mindennapi műveleteit:
 - Autók nyilvántartása és bérlése.
 - Bérlések visszavonása/lemondása.
 - Árkalkuláció és dátumalapú ütközésvizsgálat.
@@ -36,6 +36,33 @@ A projekt szigorúan követi az OOP alapelveit (öröklődés, egységbe zárás
 
 ```
 ---
+
+# Funkciók
+
+- autó hozzáadása a kölcsönzőhöz
+- autó bérlése adott dátumra
+- bérlés lemondása
+- aktuális bérlések listázása
+- személyautók és teherautók kezelése
+- hibakezelés foglalt autókra és nem létező bérlésekre
+
+# Osztályok
+
+- Auto – absztrakt alap osztály
+- SzemelyAuto – személyautó típus
+- TeherAuto – teherautó típus
+- AutoKolcsonzo – a kölcsönző működését kezeli
+- Berles – egy konkrét bérlést tárol
+
+# Használat
+
+A program egy egyszerű menüs felületen keresztül használható:
+
+- Autó bérlése
+- Bérlés lemondása
+- Bérlések listázása
+- Kilépés
+
 
 ### Kapcsolódó hivatkozások
 
